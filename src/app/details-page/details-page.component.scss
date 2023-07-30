@@ -179,7 +179,7 @@ background: rgba(67, 97, 238, 0.05);
 .btn-sec{
   display: flex;
   justify-content: center;
- width: 370px;
+//  width: 370px;
 height: 73px;
 flex-shrink: 0;
 border-radius: 10px;
@@ -202,18 +202,19 @@ line-height: normal;
   // display: flex;
   // justify-content: space-between;
   // align-items: center;
-  width: 370px;
-height: 120px;
+  // width: 370px;
+// height: 120px;
 flex-shrink: 0;
 border-radius: 20px;
 border: 0.5px solid rgba(238, 67, 67, 0.50);
 background: rgba(255, 0, 0, 0.05);
-padding: 2rem;
+// padding: 2rem;
 }
 
 .rty{
   display: flex;
   justify-content: space-between;
+  padding: 1rem;
 }
 
 .alert-side{
@@ -236,6 +237,7 @@ font-size: 12px;
 font-style: normal;
 font-weight: 400;
 line-height: normal;
+padding: 1rem;
 }
 
 .center-text{
