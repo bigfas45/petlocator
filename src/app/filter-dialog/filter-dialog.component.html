@@ -1,0 +1,29 @@
+<div class="dialog-container">
+  <div class="mGUp">
+    Filter by
+  </div>
+
+  <div class="mGUp">
+    Price range
+  </div>
+
+  <div class="custom-slider mGUp">
+<ngx-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ngx-slider>
+  </div>
+
+
+   <div class="price-rng mGUp">
+     Price range
+   </div>
+
+   <div style="display: flex; flex-direction: row; justify-content: space-around;">
+    <div class="btn-item-active">
+     <span class="btn-text-active">CHEAPEST</span>
+    </div>
+      <div class="btn-item">
+        <span class="btn-text">NEAREST</span>
+      </div>
+   </div>
+
+
+</div>

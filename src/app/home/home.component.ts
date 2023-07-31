@@ -6,6 +6,8 @@ import {
 } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { RestService } from '../services/rest.service';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { FilterDialogComponent } from '../filter-dialog/filter-dialog.component';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +18,8 @@ export class HomeComponent {
   constructor(
     public rest: RestService,
     private _snackBar: MatSnackBar,
-    private router: Router
+    private router: Router,
+    public dialog: MatDialog
   ) {}
 
   data: boolean = false;
@@ -24,7 +27,16 @@ export class HomeComponent {
   ngOnInit() {}
 
   categorySelect() {
-    
+       const catDialogSub = this.dialog.open(FilterDialogComponent, {
+         data: { selectedCat: '' },
+         disableClose: true,
+         backdropClass: 'blurred',
+       });
+       catDialogSub.afterClosed().subscribe((response) => {
+         if (response) {
+          
+         }
+       });
   }
 
   onSet() {
@@ -38,8 +50,7 @@ export class HomeComponent {
   }
 
   price() {
-        this.router.navigate(['/price']);
-
+    this.router.navigate(['/price']);
   }
 
   showSidebar: boolean = false;

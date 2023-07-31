@@ -6,6 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
 // import { EmptyRouteComponent } from './empty-route/empty-route.component';
 // import { SidebarModule } from 'ng-sidebar';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSliderModule } from '@angular/material/slider';
 
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
@@ -22,6 +24,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { DetailsPageComponent } from './details-page/details-page.component';
 import { PriceFormComponent } from './price-form/price-form.component';
 import { MapComponent } from './map/map.component';
+import { FilterDialogComponent } from './filter-dialog/filter-dialog.component';
+import {NgxSliderModule} from '@angular-slider/ngx-slider'
 
 const { googleMapsApiKey } = environment;
 
@@ -32,6 +36,7 @@ const { googleMapsApiKey } = environment;
    DetailsPageComponent,
    PriceFormComponent,
    MapComponent,
+   FilterDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,6 +52,9 @@ const { googleMapsApiKey } = environment;
     MatSelectModule,
     MatIconModule,
     MatProgressBarModule,
+    MatDialogModule,
+    MatSliderModule,
+    NgxSliderModule,
     // SidebarModule,
     AgmCoreModule.forRoot({
       apiKey: googleMapsApiKey
