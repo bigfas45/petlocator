@@ -91,7 +91,7 @@
       </mat-form-field>
     </div> -->
       <div class="input-box">
-        <div class="input-bar">
+        <mat-form-field appearance="outline">
           <input
             matInput
             autocomplete="off"
@@ -102,13 +102,14 @@
             formControlName="name"
             [errorStateMatcher]="matcher"
           />
-        </div>
+        
         <mat-error *ngIf="formOne.controls['name'].hasError('required')">
           Name is <strong>required</strong>
         </mat-error>
+      </mat-form-field>
       </div>
       <div class="input-box">
-        <div class="input-bar">
+        <mat-form-field appearance="outline">
           <input
             matInput
             autocomplete="off"
@@ -120,22 +121,21 @@
             [errorStateMatcher]="matcher"
             (keydown)="numbersOnly($event)"
           />
-          <img src="../../assets/naira.svg" />
-        </div>
+          
         <mat-error
           *ngIf="formOne.controls['priceInNaira'].hasError('required')"
         >
           Price is <strong>required</strong>
         </mat-error>
+      </mat-form-field>
       </div>
       <div class="input-box">
-        <label>Item Description</label>
         <mat-form-field appearance="outline">
           <input
             matInput
             autocomplete="off"
             type="text"
-            placeholder="Enter Item Description"
+            placeholder="Description"
             maxlength="100"
             minlength="3"
             formControlName="description"
@@ -143,30 +143,26 @@
           />
         </mat-form-field>
       </div>
-      <!-- <div class="input-box">
-        <label>Select Item</label>
-      <mat-form-field appearance="outline">
-        <mat-select formControlName="item" [disabled]="this.selectedItem.name === ''">
-          <mat-option
-            *ngFor="let item of items"
-            [value]="item.id"
-            (onSelectionChange)="selectItem(item)"
-          >
-            <strong>{{ selectedItem.name}}</strong>
-            
-          </mat-option>
-        </mat-select>
-        <mat-error *ngIf="item.hasError('required')">
-          Item is required
-        </mat-error>
-      </mat-form-field>
-    </div> -->
-
-      <span
-        >You can decide to let the app pick you location automatically while you
-        are at the point of purchase or you can enter the point of purchase
-        address manually</span
-      >
+      <div class="input-box">
+        <mat-form-field appearance="outline">
+          <input
+            matInput
+            autocomplete="off"
+            type="text"
+            placeholder="Address"
+            maxlength="100"
+            minlength="3"
+            formControlName="address"
+            [errorStateMatcher]="matcher"
+          />
+        </mat-form-field>
+      </div>
+      <div class="location">
+        <span (click)="useLocation()">
+          <img src="../../assets/use-location.svg"/>
+        </span>
+      </div>
+    
       <div class="buttons">
         <button
           class="ok"

@@ -35,11 +35,13 @@ export class PriceFormComponent implements OnInit {
   name = new FormControl('', [Validators.required]);
   priceInNaira = new FormControl('', [Validators.required]);
   description = new FormControl('');
+  address = new FormControl('');
 
   formOne = new FormGroup({
     name: this.name,
     priceInNaira: this.priceInNaira,
     description: this.description,
+    address: this.address
   });
 
   ngOnInit(): void {
@@ -48,6 +50,12 @@ export class PriceFormComponent implements OnInit {
 
   proceedWithGoogle () {
     location.href ='https://crowdfo-63ff986763ab.herokuapp.com/api/v1/auth/google';
+  }
+
+  addressText = ''
+
+  useLocation () {
+      this.address.setValue('Oando Filling Station, Ikeja, Lagos');
   }
 
   proceed () {}
@@ -92,6 +100,7 @@ export class PriceFormComponent implements OnInit {
         }
       });
     }
+
   }
 
   items = [

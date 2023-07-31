@@ -409,12 +409,12 @@ textarea {
 }
 
 ::ng-deep .mat-form-field-outline-start {
-  border-radius: 26px 0 0 26px !important;
+  border-radius: 10px 0 0 10px !important;
   min-width: 28px !important;
 }
 
 ::ng-deep .mat-form-field-outline-end {
-  border-radius: 0 26px 26px 0 !important;
+  border-radius: 0 10px 10px 0 !important;
 }
 
 .container {
@@ -459,7 +459,7 @@ button {
     margin: 25px 0px 28px 0px;
     box-sizing: border-box;
     background: #0b2545;
-    border-radius: 27px;
+    border-radius: 10px;
     color: #ffffff;
     border: none;
     width: 100%;
@@ -482,4 +482,13 @@ button {
 a {
   text-decoration: none;
   color: white;
+}
+
+.location {
+  display: flex;
+  justify-content: flex-end;
+
+  span img {
+    height: 18px;
+  }
 }
