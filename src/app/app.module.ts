@@ -27,18 +27,19 @@ import { MapComponent } from './map/map.component';
 import { FilterDialogComponent } from './filter-dialog/filter-dialog.component';
 import {NgxSliderModule} from '@angular-slider/ngx-slider';
 import { FilterResultComponent } from './filter-result/filter-result.component'
+import { MatChipsModule } from '@angular/material/chips';
 
 const { googleMapsApiKey } = environment;
 
 @NgModule({
   declarations: [
     AppComponent,
-   HomeComponent,
-   DetailsPageComponent,
-   PriceFormComponent,
-   MapComponent,
-   FilterDialogComponent,
-   FilterResultComponent,
+    HomeComponent,
+    DetailsPageComponent,
+    PriceFormComponent,
+    MapComponent,
+    FilterDialogComponent,
+    FilterResultComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,12 +58,13 @@ const { googleMapsApiKey } = environment;
     MatDialogModule,
     MatSliderModule,
     NgxSliderModule,
+    
     // SidebarModule,
     AgmCoreModule.forRoot({
-      apiKey: googleMapsApiKey
-    })
+      apiKey: googleMapsApiKey,
+    }),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

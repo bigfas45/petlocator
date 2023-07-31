@@ -3,10 +3,14 @@ import { FormControl } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Options, LabelType } from '@angular-slider/ngx-slider';
 import { Router } from '@angular/router';
+import { MatChipsModule } from '@angular/material/chips';
 @Component({
+  
+
   selector: 'app-filter-dialog',
   templateUrl: './filter-dialog.component.html',
   styleUrls: ['./filter-dialog.component.scss'],
+  
 })
 export class FilterDialogComponent implements OnInit {
   constructor(
@@ -19,7 +23,7 @@ export class FilterDialogComponent implements OnInit {
   minValue: number = 500;
   maxValue: number = 700;
   options: Options = {
-    floor: 0,
+    floor: 500,
     ceil: 700,
     translate: (value: number, label: LabelType): string => {
       switch (label) {
@@ -41,6 +45,6 @@ export class FilterDialogComponent implements OnInit {
 
   price() {
     this.router.navigate(['/filter']);
-    this.closeDialog()
+    this.closeDialog();
   }
 }

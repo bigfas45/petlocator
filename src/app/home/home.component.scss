@@ -153,7 +153,7 @@ button.input-button {
     position: absolute;
     left: 6rem;
     color: #969696;
-    font-family: 'TT Firs Neue Trl',  sans-serif;
+    font-family: 'TT Firs Neue Trail',  sans-serif;
     font-size: 15px;
     font-style: normal;
     font-weight: 500;
@@ -188,6 +188,7 @@ button.input-button {
       width: 100vw;
       justify-content: center;
       align-items: center;
+      margin-top: 6rem;
 }
 
 .text-create-price{
@@ -211,7 +212,7 @@ margin-top: 1rem;
 
 .inner-btn-text{
   color: #FFF;
-font-family: 'TT Firs Neue Trl' , sans-serif;
+font-family: 'TT Firs Neue Trail' , sans-serif;
 font-size: 20px;
 font-style: normal;
 font-weight: 500;
@@ -253,7 +254,7 @@ span:nth-child(1) {
 display: grid;
 width: 149px;
 color: #4361EE;
-font-family: 'TT Firs Neue Trl' , sans-serif;
+font-family: 'TT Firs Neue Trail' , sans-serif;
 font-size: 15px;
 font-style: normal;
 font-weight: 500;
@@ -350,7 +351,7 @@ span:nth-child(1) {
 display: flex;
 justify-content: space-between;
 color: #4361EE;
-font-family: 'TT Firs Neue Trl' , sans-serif;
+font-family: 'TT Firs Neue Trail' , sans-serif;
 font-size: 15px;
 font-style: normal;
 font-weight: 500;
@@ -393,8 +394,98 @@ gap: 1rem;
   left: 0; /* Move the sidebar back to the original position to show it */
 }
 
+
+.history-row{
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr ;
+  margin-top: 2rem;
+  gap: 2rem;
+
+}
+
+.history-con{
+  display: grid;
+  grid-template-columns: 40% 60%;
+
+// width: 370px;
+  // height: 143px;
+flex-shrink: 0;
+border-radius: 20px;
+border: 0.5px solid var(--light-blue-2, #A1B0F6);
+background: var(--light-grey, #F9F9F9);
+}
+
+.d-v-1{
+background-image: url('../../assets/Mask\ group.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+}
+
+
+.x-p{
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  padding: 0.6rem;
+  // gap: 1rem;
+  grid-gap: 0;
+}
+
+.x-p-b{
+  color: var(--primary-blue, #4361EE);
+font-family: 'TT Firs Neue Trail';
+font-size: 22px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+margin-right: 2rem;
+}
+
+.x-p-s-s{
+  color: var(--black, #000C44);
+font-family: 'TT Firs Neue Trail';
+font-size: 10.289px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+
+.x-p-svg{
+  color: var(--black, #000C44);
+
+/* Description text */
+font-family: 'TT Firs Neue Trail';
+font-size: 12px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+
 @media screen and (min-width: 992px) {
 
+  .history-con{
+  display: grid;
+  grid-template-columns: 40% 60%;
+
+width: 370px;
+  // height: 143px;
+flex-shrink: 0;
+border-radius: 20px;
+border: 0.5px solid var(--light-blue-2, #A1B0F6);
+background: var(--light-grey, #F9F9F9);
+}
+
+  .history-row{
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 2rem;
+  gap: 2rem;
+}
 
 .section-card-container{
   display: flex;
@@ -434,7 +525,7 @@ span:nth-child(1) {
 display: flex;
 justify-content: space-between;
 color: #4361EE;
-font-family: 'TT Firs Neue Trl',  sans-serif;
+font-family: 'TT Firs Neue Trail',  sans-serif;
 font-size: 15px;
 font-style: normal;
 font-weight: 500;
@@ -457,9 +548,9 @@ margin-top: 1rem;
 
 }
 
-    .section-center{
-    width: 95vw;
-  }
+  //   .section-center{
+  //   width: 95vw;
+  // }
 
     .section-service{
     display: grid;
