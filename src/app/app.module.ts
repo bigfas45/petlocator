@@ -20,6 +20,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { DetailsPageComponent } from './details-page/details-page.component';
+import { PriceFormComponent } from './price-form/price-form.component';
 
 const { googleMapsApiKey } = environment;
 
@@ -28,6 +29,7 @@ const { googleMapsApiKey } = environment;
     AppComponent,
    HomeComponent,
    DetailsPageComponent,
+   PriceFormComponent,
   ],
   imports: [
     BrowserModule,

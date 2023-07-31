@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { EmptyRouteComponent } from './empty-route/empty-route.component';
 import { DetailsPageComponent } from './details-page/details-page.component';
-
+import { PriceFormComponent } from './price-form/price-form.component';
 
 const routes: Routes = [
   {
@@ -21,6 +21,11 @@ const routes: Routes = [
   {
     path: 'details',
     component: DetailsPageComponent,
+  },
+
+  {
+    path: 'price',
+    component: PriceFormComponent
   },
 
   { path: '**', component: EmptyRouteComponent },

@@ -30,9 +30,14 @@ export class HomeComponent {
   }
 
   redirect() {
-    console.log("fffff");
-    
+    console.log('fffff');
+
     this.router.navigate(['/details']);
+  }
+
+  price() {
+        this.router.navigate(['/price']);
+
   }
 
   showSidebar: boolean = false;

@@ -1,0 +1,435 @@
+main {
+  // display: grid;
+  width: 100vw;
+  height: 90vh;
+  overflow: auto;
+  padding-bottom: 2rem;
+
+
+}
+
+img:not(.nav-logo, .avart){
+width: 100%;
+display: block;
+}
+
+
+
+.container {
+  margin: 0 auto;
+  width: 100%;
+
+
+}
+
+
+
+
+.nav {
+  height: 5rem;
+  padding: 1rem;
+  display: grid;
+  align-items: center;
+  transition: all 0.3s linear;
+}
+
+
+
+.nav-center {
+  width: 100%;
+  max-width: 1170%;
+  margin: 0 auto;
+}
+
+.nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+
+.nav-btn {
+  background: transparent;
+  border: transparent;
+  color: bisque;
+  font-size: 2rem;
+  cursor: pointer;
+  justify-self: end;
+
+}
+
+.nav-btn-div {
+  display: none;
+}
+
+
+
+
+  .DetailTiltle{
+    color: var(--black, #000C44);
+font-family: TT Firs Neue Trl;
+font-size: 22px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+  }
+
+
+.section-center {
+  width: 90vw;
+  margin: 0 auto;
+  max-width: 1390px;
+}
+
+.hero{
+  display: grid;
+  grid-template-columns: 1fr;
+  height: 50%;
+  background-image: url('../../assets/OANDO-scaled\ 2.png');
+  
+  /* Specify how the image should be repeated, positioned, and sized */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  border-radius: 2rem;
+
+}
+
+.imgUp{
+  margin-top: 1rem;
+}
+
+.detil-b-t{
+  color: var(--black, #000C44);
+font-family: 'TT Firs Neue Trl', sans-serif;
+font-size: 22px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+
+.span-1{
+  color: var(--black, #000C44);
+font-family: 'TT Firs Neue Trl' sans-serif;
+font-size: 15px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+
+.span-2{
+color: #C5C5C5;
+font-family: 'TT Firs Neue Trl' sans-serif;
+font-size: 12px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+
+.span-3{
+  color: var(--text-color, #969696);
+font-family: 'TT Firs Neue Trl' sans-serif;
+font-size: 12px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+
+.tlt{
+  display: flex;
+  align-items: center;
+}
+
+.pump-tl{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pump-text{
+  color: var(--black, #000C44);
+text-align: center;
+font-family:' TT Firs Neue Trl' sans-serif;
+font-size: 20px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+
+.pump-price-d{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.pump-content-div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 10rem;
+height: 102px;
+flex-shrink: 0;
+border-radius: 20px;
+border: 0.5px solid rgba(67, 97, 238, 0.50);
+background: rgba(67, 97, 238, 0.05);
+}
+
+.btn-sec{
+  display: flex;
+  justify-content: center;
+//  width: 370px;
+height: 73px;
+flex-shrink: 0;
+border-radius: 10px;
+background: var(--primary-blue, #4361EE);
+border: 0;
+align-items: center;
+
+span{
+  color: #FFF;
+text-align: center;
+font-family: 'TT Firs Neue Trl', sans-serif;
+font-size: 20px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+}
+
+.sec-alert{
+  // display: flex;
+  // justify-content: space-between;
+  // align-items: center;
+  // width: 370px;
+// height: 120px;
+flex-shrink: 0;
+border-radius: 20px;
+border: 0.5px solid rgba(238, 67, 67, 0.50);
+background: rgba(255, 0, 0, 0.05);
+// padding: 2rem;
+}
+
+.rty{
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.alert-side{
+  display: flex;
+}
+.txt-alert{
+  color: var(--red, #F00);
+font-family: 'TT Firs Neue Trl', sans-serif;
+font-size: 15px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+
+.alert-text-p{
+  color: var(--red, #F00);
+text-align: justify;
+font-family: 'TT Firs Neue Trl', sans-serif;
+font-size: 12px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+padding: 1rem;
+}
+
+.center-text{
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+
+}
+
+textarea{
+  width: 370px;
+height: 147px;
+flex-shrink: 0;
+border-radius: 10px;
+background: var(--grey-3, #EDEDED);
+border: 0;
+padding: 1rem;
+
+color: var(--text-color, #969696);
+font-family: 'TT Firs Neue Trl' sans-serif;
+font-size: 12px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+
+
+
+.txt-nnn{
+  color: var(--black, #000C44);
+text-align: center;
+font-family:' TT Firs Neue Trl', sans-serif;
+font-size: 20px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+
+.txt-nnn-2{
+  color: var(--text-color, #969696);
+font-family: ' TT Firs Neue Trl', sans-serif;
+font-size: 20px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+
+.icon-con{
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.icon-con-itme{
+  display: flex;
+  width: 100%;
+height: 78px;
+flex-shrink: 0;
+border-radius: 20px;
+border: 0.5px solid rgba(67, 97, 238, 0.50);
+background: rgba(67, 97, 238, 0.05);
+justify-content: center;
+align-items: center;
+
+
+}
+
+
+.icon-text{
+  display: flex;
+  color: #000;
+text-align: center;
+font-family: TT Firs Neue Trl;
+font-size: 12px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+padding: 1rem;
+}
+.textareabtn{
+  width: 103px;
+height: 55px;
+flex-shrink: 0;
+
+border-radius: 10px;
+background: var(--primary-blue, #4361EE);
+border: 0;
+
+color: var(--white, #FFF);
+text-align: center;
+font-family: 'TT Firs Neue Trl', sans-serif;
+font-size: 20px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+
+.form-text{
+width: 100%;
+height: 43px;
+flex-shrink: 0;
+border-radius: 10px;
+border: 1px solid rgba(67, 97, 238, 0.50);
+background: #FFF;
+padding: 0.3rem;
+}
+
+
+
+
+.mat-form-field {
+    display: inline-block;
+    position: relative;
+    text-align: left;
+    width: 100%;
+}
+
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+
+border: 1px solid rgba(67, 97, 238, 0.50);
+background: #FFF;
+}
+
+@media screen and (min-width: 992px) {
+
+  .sec-alert{
+  // display: flex;
+  // justify-content: space-between;
+  // align-items: center;
+  width: 370px;
+height: 120px;
+flex-shrink: 0;
+border-radius: 20px;
+border: 0.5px solid rgba(238, 67, 67, 0.50);
+background: rgba(255, 0, 0, 0.05);
+// padding: 2rem;
+}
+
+.btn-sec{
+  display: flex;
+  justify-content: center;
+ width: 370px;
+height: 73px;
+flex-shrink: 0;
+border-radius: 10px;
+background: var(--primary-blue, #4361EE);
+border: 0;
+align-items: center;
+
+span{
+  color: #FFF;
+text-align: center;
+font-family: 'TT Firs Neue Trl', sans-serif;
+font-size: 20px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+}
+
+
+  //   .section-center{
+  //   width: 95vw;
+  // }
+
+  .hero{
+  display: grid;
+  grid-template-columns: 1fr;
+  
+  height: 50%;
+  background-color: red;
+}
+
+ 
+  .nav {
+    height: 5rem;
+    padding: 1rem 4rem;
+    display: grid;
+    align-items: center;
+    transition: all 0.3s linear;
+  }
+
+
+
+
+
+  .nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+}
