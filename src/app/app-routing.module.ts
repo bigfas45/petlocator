@@ -6,6 +6,7 @@ import { EmptyRouteComponent } from './empty-route/empty-route.component';
 import { DetailsPageComponent } from './details-page/details-page.component';
 import { PriceFormComponent } from './price-form/price-form.component';
 import { MapComponent } from './map/map.component';
+import { FilterResultComponent } from './filter-result/filter-result.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,11 @@ const routes: Routes = [
   {
     path: 'price',
     component: PriceFormComponent
+  },
+
+  {
+    path: 'filter',
+    component: FilterResultComponent
   },
 
   { path: '**', component: EmptyRouteComponent },

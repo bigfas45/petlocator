@@ -25,7 +25,8 @@ import { DetailsPageComponent } from './details-page/details-page.component';
 import { PriceFormComponent } from './price-form/price-form.component';
 import { MapComponent } from './map/map.component';
 import { FilterDialogComponent } from './filter-dialog/filter-dialog.component';
-import {NgxSliderModule} from '@angular-slider/ngx-slider'
+import {NgxSliderModule} from '@angular-slider/ngx-slider';
+import { FilterResultComponent } from './filter-result/filter-result.component'
 
 const { googleMapsApiKey } = environment;
 
@@ -37,6 +38,7 @@ const { googleMapsApiKey } = environment;
    PriceFormComponent,
    MapComponent,
    FilterDialogComponent,
+   FilterResultComponent,
   ],
   imports: [
     BrowserModule,

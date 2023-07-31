@@ -2,6 +2,7 @@ import { Component, Inject, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Options, LabelType } from '@angular-slider/ngx-slider';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-filter-dialog',
   templateUrl: './filter-dialog.component.html',
@@ -9,6 +10,8 @@ import { Options, LabelType } from '@angular-slider/ngx-slider';
 })
 export class FilterDialogComponent implements OnInit {
   constructor(
+    private router: Router,
+
     public dialogRef: MatDialogRef<FilterDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data
   ) {}
@@ -34,5 +37,10 @@ export class FilterDialogComponent implements OnInit {
 
   closeDialog() {
     this.dialogRef.close(0);
+  }
+
+  price() {
+    this.router.navigate(['/filter']);
+    this.closeDialog()
   }
 }
