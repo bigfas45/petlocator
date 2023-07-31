@@ -1,0 +1,143 @@
+::ng-deep .mat-dialog-container {
+  padding: 24px 0px;
+  border-radius: 20px;
+  background-color: #494949;
+}
+
+.modal-wrapper {
+  color: #ffffff;
+
+  .top {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 9px;
+
+    img {
+      margin-right: 20px;
+      cursor: pointer;
+    }
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .logo {
+      width: 168px;
+      height: 36px;
+    }
+
+    .info {
+      font-weight: 400;
+      font-size: 15px;
+      text-align: center;
+      padding: 10px 10px 0px 7px;
+    }
+  }
+}
+
+.grid-box {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  grid-row-gap: 20px;
+  place-items: center;
+
+  @media screen and (max-width: 950px) {
+    width: 100%;
+  }
+
+  input {
+    width: 34px;
+    height: 34px;
+    font-size: 16px;
+    text-align: center;
+    border: 1.09697px solid #edecec;
+    border-radius: 10.9697px;
+  }
+
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+}
+
+.flex-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @media screen and (max-width: 950px) {
+    width: 100%;
+  }
+}
+
+.ok {
+    background-color: #4361EE;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 25px 0px 28px 0px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    color: #ffffff;
+    border: none;
+    width: 80%;
+    height: 60px;
+    font-size: 15px;
+    cursor: pointer;
+
+    img {
+        margin-left: 10px;
+    }
+}
+
+
+.ok:disabled {
+  background-color: #d6dadf;
+}
+
+span {
+  text-align: center;
+}
+
+.resend {
+  color: #db353a;
+  cursor: pointer;
+}
+
+.social-auth {
+  background-color: #ffffff;
+  width: 80%;
+  height: 60px;
+  margin: 15px 0px 15px 0px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  border: 1px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 12px;
+  font-size: 15px;
+
+  img {
+    margin-right: 20px;
+  }
+}
+
+.bottom-text {
+    font-weight: 400;
+    font-size: 14px;
+    text-align: center;
+    padding: 24px 20px;
+
+    a {
+        color: #ffffff;
+    }
+}

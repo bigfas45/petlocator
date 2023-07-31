@@ -7,12 +7,17 @@ import { DetailsPageComponent } from './details-page/details-page.component';
 import { PriceFormComponent } from './price-form/price-form.component';
 import { MapComponent } from './map/map.component';
 import { FilterResultComponent } from './filter-result/filter-result.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'get-started',
     pathMatch: 'full',
+  },
+  {
+    path: 'get-started',
+    component: LandingPageComponent,
   },
 
   {

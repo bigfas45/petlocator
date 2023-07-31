@@ -28,6 +28,8 @@ import { FilterDialogComponent } from './filter-dialog/filter-dialog.component';
 import {NgxSliderModule} from '@angular-slider/ngx-slider';
 import { FilterResultComponent } from './filter-result/filter-result.component'
 import { MatChipsModule } from '@angular/material/chips';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { AuthModalComponent } from './modals/auth-modal/auth-modal.component'
 
 const { googleMapsApiKey } = environment;
 
@@ -40,6 +42,14 @@ const { googleMapsApiKey } = environment;
     MapComponent,
     FilterDialogComponent,
     FilterResultComponent,
+   HomeComponent,
+   DetailsPageComponent,
+   PriceFormComponent,
+   MapComponent,
+   FilterDialogComponent,
+   FilterResultComponent,
+   LandingPageComponent,
+   AuthModalComponent,
   ],
   imports: [
     BrowserModule,
