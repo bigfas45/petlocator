@@ -1,20 +1,37 @@
 <main>
-    <div class="upper-desktop">
-        <img src="../../assets/fuelstation-desktop.svg" alt="">
-    </div>
-    <div class="upper-mobile">
-        <img src="../../assets/fuelstation.svg" alt="">
-    </div>
-    <div class="card">
-        <img class="logo" src="../../assets/logo.svg" alt="">
+    <div class="desktop-card">
+        <img class="logo" src="../../assets/logo.svg" alt="" />
         <span class="title">Find Cheapest Petrol Stations Near You</span>
-        <span class="description">Navigate the cheapest petrol stations near you with absolute ease.</span>
+        <span class="description"
+          >Navigate the cheapest petrol stations near you with absolute
+          ease.</span
+        >
         <button class="ok" (click)="proceedToHome()">
-            <span>Discover</span>
-            <img src="../../assets/search.svg" />
+          <span>Discover</span>
+          <img src="../../assets/search.svg" />
         </button>
         <div class="signup" (click)="openAuthModal()">
-        <img  src="../../assets/signup.svg" alt="">
+          <img src="../../assets/signup.svg" alt="" />
+        </div>
+      </div>
+  <div class="mobile">
+    <div class="upper">
+      <img src="../../assets/fuelstation.svg" alt="" />
     </div>
+    <div class="card">
+      <img class="logo" src="../../assets/logo.svg" alt="" />
+      <span class="title">Find Cheapest Petrol Stations Near You</span>
+      <span class="description"
+        >Navigate the cheapest petrol stations near you with absolute
+        ease.</span
+      >
+      <button class="ok" (click)="proceedToHome()">
+        <span>Discover</span>
+        <img src="../../assets/search.svg" />
+      </button>
+      <div class="signup" (click)="openAuthModal()">
+        <img src="../../assets/signup.svg" alt="" />
+      </div>
     </div>
+  </div>
 </main>
