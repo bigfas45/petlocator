@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
 // import { EmptyRouteComponent } from './empty-route/empty-route.component';
+// import { SidebarModule } from 'ng-sidebar';
 
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
@@ -42,6 +43,7 @@ const { googleMapsApiKey } = environment;
     MatSelectModule,
     MatIconModule,
     MatProgressBarModule,
+    // SidebarModule,
     AgmCoreModule.forRoot({
       apiKey: googleMapsApiKey
     })

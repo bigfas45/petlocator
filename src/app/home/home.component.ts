@@ -30,6 +30,14 @@ export class HomeComponent {
   }
 
   redirect() {
-      this.router.navigate(['/details']);
+    console.log("fffff");
+    
+    this.router.navigate(['/details']);
+  }
+
+  showSidebar: boolean = false;
+
+  toggleSidebar(): void {
+    this.showSidebar = !this.showSidebar;
   }
 }
