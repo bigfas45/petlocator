@@ -11,7 +11,17 @@ export class DetailsPageComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  markers: marker[] = [{ lat: 6.450899668730424, lng: 3.413215345889619, label: 'Oando Filling Station', draggable: false}];
+
   back() {
     this.router.navigate(['/']);
   }
+}
+
+interface marker {
+  lat: number;
+  lng: number;
+  label?: string | any;
+  draggable: boolean;
+  position?: number;
 }
