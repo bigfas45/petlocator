@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { AuthModalComponent } from '../modals/auth-modal/auth-modal.component';
 
 @Component({
@@ -8,7 +9,7 @@ import { AuthModalComponent } from '../modals/auth-modal/auth-modal.component';
   styleUrls: ['./landing-page.component.scss']
 })
 export class LandingPageComponent implements OnInit {
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, private router: Router) {}
 
 
   ngOnInit(): void {
@@ -19,6 +20,10 @@ export class LandingPageComponent implements OnInit {
       height: '574px',
       width: '406px',
     });
+  }
+
+  proceedToHome () {
+    this.router.navigate(['/home']);
   }
 
 }

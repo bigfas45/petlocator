@@ -434,6 +434,10 @@ textarea {
   display: flex;
   flex-direction: column;
 
+  .input-bar {
+    display: flex;
+  }
+
   input {
     font-size: 16px;
   }

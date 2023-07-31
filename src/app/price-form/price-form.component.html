@@ -91,49 +91,42 @@
       </mat-form-field>
     </div> -->
       <div class="input-box">
-        <label>Item Name</label>
-        <mat-form-field appearance="outline">
+        <div class="input-bar">
           <input
             matInput
             autocomplete="off"
             type="text"
-            placeholder="Enter Item Name"
+            placeholder="Name"
             maxlength="10"
             minlength="2"
             formControlName="name"
             [errorStateMatcher]="matcher"
           />
-          <mat-error *ngIf="formOne.controls['name'].hasError('required')">
-            Name is <strong>required</strong>
-          </mat-error>
-        </mat-form-field>
+        </div>
+        <mat-error *ngIf="formOne.controls['name'].hasError('required')">
+          Name is <strong>required</strong>
+        </mat-error>
       </div>
       <div class="input-box">
-        <label>Item Price</label>
-        <mat-form-field appearance="outline">
+        <div class="input-bar">
           <input
             matInput
             autocomplete="off"
             type="text"
-            placeholder="Enter Item Price"
+            placeholder="Price"
             maxlength="10"
             minlength="2"
             formControlName="priceInNaira"
             [errorStateMatcher]="matcher"
             (keydown)="numbersOnly($event)"
           />
-
-          <mat-error
-            *ngIf="formOne.controls['priceInNaira'].hasError('minLength')"
-          >
-            Please enter a valid account number (10 digits long)
-          </mat-error>
-          <mat-error
-            *ngIf="formOne.controls['priceInNaira'].hasError('required')"
-          >
-            Price is <strong>required</strong>
-          </mat-error>
-        </mat-form-field>
+          <img src="../../assets/naira.svg" />
+        </div>
+        <mat-error
+          *ngIf="formOne.controls['priceInNaira'].hasError('required')"
+        >
+          Price is <strong>required</strong>
+        </mat-error>
       </div>
       <div class="input-box">
         <label>Item Description</label>
@@ -169,21 +162,24 @@
       </mat-form-field>
     </div> -->
 
-    <span>You can decide to let the app pick you location automatically while you are at the point of purchase or you
-      can enter the point of purchase address manually</span>
-    <div class="buttons">
-
-    
-      <button class="ok" [disabled]="formOne.invalid" (click)="proceedWithGoogle()">
-        Proceed with Google
-      
-      </button>
-      <span>OR</span>
-      <button class="ok" [disabled]="formOne.invalid" (click)="proceed()">
-        Proceed with email
-      </button>
+      <span
+        >You can decide to let the app pick you location automatically while you
+        are at the point of purchase or you can enter the point of purchase
+        address manually</span
+      >
+      <div class="buttons">
+        <button
+          class="ok"
+          [disabled]="formOne.invalid"
+          (click)="proceedWithGoogle()"
+        >
+          Proceed with Google
+        </button>
+        <span>OR</span>
+        <button class="ok" [disabled]="formOne.invalid" (click)="proceed()">
+          Proceed with email
+        </button>
+      </div>
     </div>
-    </div>
-    
   </form>
 </main>
