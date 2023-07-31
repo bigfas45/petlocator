@@ -1,0 +1,126 @@
+agm-map {
+  height: 900px;
+  width: 100%;
+
+  @media only screen and (max-width: 500px) {
+    height: calc(100vh - 300px);
+    width: 100vw;
+  }
+}
+
+.imgUp {
+  margin-top: 1rem;
+}
+
+.detil-b-t {
+  color: var(--black, #000c44);
+  font-family: "TT Firs Neue Trl", sans-serif;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.span-1 {
+  color: var(--black, #000c44);
+  font-family: "TT Firs Neue Trl" sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.span-2 {
+  color: #c5c5c5;
+  font-family: "TT Firs Neue Trl" sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.span-3 {
+  color: var(--text-color, #969696);
+  font-family: "TT Firs Neue Trl" sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.tlt {
+  display: flex;
+  align-items: center;
+}
+
+.pump-tl {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pump-text {
+  color: var(--black, #000c44);
+  text-align: center;
+  font-family: " TT Firs Neue Trl" sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.pump-price-d {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.pump-content-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  height: fit-content;
+  padding: 5px 10px;
+  flex-shrink: 0;
+  border-radius: 20px;
+  border: 0.5px solid rgba(67, 97, 238, 0.5);
+  background: rgba(67, 97, 238, 0.05);
+}
+
+.btn-sec {
+  display: flex;
+  justify-content: center;
+  width: 80%;
+  height: 40px;
+  padding: 5px 10px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: var(--primary-blue, #4361ee);
+  border: 0;
+  align-items: center;
+
+  span {
+    color: #fff;
+    text-align: center;
+    font-family: "TT Firs Neue Trl", sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
