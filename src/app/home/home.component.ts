@@ -23,7 +23,9 @@ export class HomeComponent {
 
   ngOnInit() {}
 
-  categorySelect() {}
+  categorySelect() {
+    
+  }
 
   onSet() {
     this.data = !this.data;
