@@ -4,64 +4,183 @@
       <div class="nav-center">
         <!-- nav header -->
         <div class="nav-header">
-
-
           <div class="box" (click)="back()">
-            <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56" fill="none">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="56"
+              height="56"
+              viewBox="0 0 56 56"
+              fill="none"
+            >
               <circle cx="28" cy="28" r="28" fill="black" fill-opacity="0.1" />
-              <path d="M28.07 22L22 28.07L28.07 34.14" stroke="black" stroke-width="2" stroke-miterlimit="10"
-                stroke-linecap="round" stroke-linejoin="round" />
-              <path d="M33.5 28.0701H22.5" stroke="black" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"
-                stroke-linejoin="round" />
+              <path
+                d="M28.07 22L22 28.07L28.07 34.14"
+                stroke="black"
+                stroke-width="2"
+                stroke-miterlimit="10"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M33.5 28.0701H22.5"
+                stroke="black"
+                stroke-width="2"
+                stroke-miterlimit="10"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
             </svg>
-
           </div>
 
           <div class="box">
-
             <span class="DetailTiltle">Oando </span>
-
           </div>
 
           <div class="box">
-
-            <svg xmlns="http://www.w3.org/2000/svg" width="42" height="19" viewBox="0 0 42 19" fill="none">
-              <path d="M2 2H40" stroke="#292D32" stroke-width="3" stroke-linecap="round" />
-              <path d="M2 9.5H40" stroke="#292D32" stroke-width="3" stroke-linecap="round" />
-              <path d="M2 17H40" stroke="#292D32" stroke-width="3" stroke-linecap="round" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="42"
+              height="19"
+              viewBox="0 0 42 19"
+              fill="none"
+            >
+              <path
+                d="M2 2H40"
+                stroke="#292D32"
+                stroke-width="3"
+                stroke-linecap="round"
+              />
+              <path
+                d="M2 9.5H40"
+                stroke="#292D32"
+                stroke-width="3"
+                stroke-linecap="round"
+              />
+              <path
+                d="M2 17H40"
+                stroke="#292D32"
+                stroke-width="3"
+                stroke-linecap="round"
+              />
             </svg>
           </div>
         </div>
       </div>
     </nav>
-    <div>
+  </div>
+
+  <form [formGroup]="formOne">
+    <div class="container">
+      <span class="topic">Kindly enter details of the item you purchased</span>
+      <!-- <div class="input-box">
+        <label>Select Item</label>
+      <mat-form-field appearance="outline">
+        <mat-select formControlName="item" [disabled]="this.selectedItem.name === ''">
+          <mat-option
+            *ngFor="let item of items"
+            [value]="item.id"
+            (onSelectionChange)="selectItem(item)"
+          >
+            <strong>{{ selectedItem.name}}</strong>
+            
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="item.hasError('required')">
+          Item is required
+        </mat-error>
+      </mat-form-field>
+    </div> -->
+      <div class="input-box">
+        <label>Item Name</label>
+        <mat-form-field appearance="outline">
+          <input
+            matInput
+            autocomplete="off"
+            type="text"
+            placeholder="Enter Item Name"
+            maxlength="10"
+            minlength="2"
+            formControlName="name"
+            [errorStateMatcher]="matcher"
+          />
+          <mat-error *ngIf="formOne.controls['name'].hasError('required')">
+            Name is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="input-box">
+        <label>Item Price</label>
+        <mat-form-field appearance="outline">
+          <input
+            matInput
+            autocomplete="off"
+            type="text"
+            placeholder="Enter Item Price"
+            maxlength="10"
+            minlength="2"
+            formControlName="priceInNaira"
+            [errorStateMatcher]="matcher"
+            (keydown)="numbersOnly($event)"
+          />
+
+          <mat-error
+            *ngIf="formOne.controls['priceInNaira'].hasError('minLength')"
+          >
+            Please enter a valid account number (10 digits long)
+          </mat-error>
+          <mat-error
+            *ngIf="formOne.controls['priceInNaira'].hasError('required')"
+          >
+            Price is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="input-box">
+        <label>Item Description</label>
+        <mat-form-field appearance="outline">
+          <input
+            matInput
+            autocomplete="off"
+            type="text"
+            placeholder="Enter Item Description"
+            maxlength="100"
+            minlength="3"
+            formControlName="description"
+            [errorStateMatcher]="matcher"
+          />
+        </mat-form-field>
+      </div>
+      <!-- <div class="input-box">
+        <label>Select Item</label>
+      <mat-form-field appearance="outline">
+        <mat-select formControlName="item" [disabled]="this.selectedItem.name === ''">
+          <mat-option
+            *ngFor="let item of items"
+            [value]="item.id"
+            (onSelectionChange)="selectItem(item)"
+          >
+            <strong>{{ selectedItem.name}}</strong>
+            
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="item.hasError('required')">
+          Item is required
+        </mat-error>
+      </mat-form-field>
+    </div> -->
+    <div class="buttons">
+
+    
+      <button class="ok" [disabled]="formOne.invalid" (click)="proceedWithGoogle()">
+        Proceed with Google
+      
+      </button>
+      <span>OR</span>
+      <button class="ok" [disabled]="formOne.invalid" (click)="proceed()">
+        Proceed with email
+      </button>
     </div>
-  </div>
-
-
-  <div class="center-text section-center imgUp">
-    Kindly enter the price and location of the fuel you bought to help others!
-  </div>
-
-
-  <div class="center-text section-center imgUp">
-
-    <input type="text" class="form-text" placeholder="Fuel type">
-  </div>
-
-  <div class="center-text section-center imgUp" placeholder="Fuel price">
-
-    <mat-form-field  appearance="outline">
-      <mat-label>Outline form field</mat-label>
-      <input  matInput placeholder="Placeholder">
-      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-      <!-- <mat-hint>Hint</mat-hint> -->
-    </mat-form-field>
-  </div>
-
-  <div class="center-text section-center imgUp" placeholder="Fuel type">
-
-    <input type="date" class="form-text" placeholder="Date">
-  </div>
-
+    </div>
+    
+  </form>
 </main>
