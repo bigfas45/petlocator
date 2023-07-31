@@ -1,0 +1,78 @@
+main {
+  display: flex;
+  flex-direction: column;
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+
+    .logo {
+      width: 168px;
+      height: 36px;
+    }
+    .title {
+      width: 303px;
+      height: 62px;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 31px;
+      letter-spacing: 0em;
+      text-align: center;
+      padding-top: 10px;
+    }
+
+    .description {
+        font-weight: 400;
+        font-size: 15px;
+        text-align: center;
+        padding-top: 10px;
+    }
+  }
+}
+
+.upper-desktop {
+  display: flex;
+  height: 40%;
+
+  img {
+    width: 100vw;
+    height: 40%;
+  }
+  @media only screen and (max-width: 500px) {
+    display: none;
+  }
+}
+
+.upper-mobile {
+  height: 50%;
+  display: none;
+  @media only screen and (max-width: 500px) {
+    display: flex;
+  }
+}
+
+.ok {
+    background-color: #4361EE;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 25px 0px 28px 0px;
+    box-sizing: border-box;
+    border-radius: 27px;
+    color: #ffffff;
+    border: none;
+    width: 80%;
+    height: 73px;
+    font-size: 20px;
+    cursor: pointer;
+
+    img {
+        margin-left: 10px;
+    }
+}
+
+.signup {
+    cursor: pointer;
+}

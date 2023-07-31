@@ -1,0 +1,28 @@
+<div class="modal-wrapper">
+    <div class="top">
+        <img src='../../../assets/close-icon.svg' alt="close icon" (click)="onCancel()">
+    </div>
+    <div class="content">
+        <img class="logo" src="../../../assets/white-logo.svg" alt="">
+        <span class="info">
+            Welcome! Use your email or another service to continue
+        </span>
+        <button class="social-auth" (click)="proceedWithGoogle()">
+            <img src="../../../assets/google-auth.svg"/>
+            <span>Continue with Google</span>
+        </button>
+        <button class="social-auth">
+            <img src="../../../assets/facebook-auth.svg"/>
+            <span>Continue with Google</span>
+        </button>
+        <button class="ok">
+            <span>Continue with Email</span>
+            <img src="../../../assets/arrow-right.svg" />
+        </button>
+
+        <span class="bottom-text">
+            By continuing, you have read, understood and agreed to our <a href="">Terms of Service.</a>
+        </span>
+    </div>
+
+</div>
