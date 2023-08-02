@@ -71,7 +71,7 @@
 
   <form [formGroup]="formOne">
     <div class="container">
-      <span class="topic">Kindly enter details of the item you purchased</span>
+      <span class="topic">Kindly enter the price and location of the fuel you bought to help others!</span>
       <!-- <div class="input-box">
         <label>Select Item</label>
       <mat-form-field appearance="outline">
@@ -90,20 +90,14 @@
         </mat-error>
       </mat-form-field>
     </div> -->
-      <div class="input-box">
+      <div class="input-box mt">
         <mat-form-field appearance="outline">
-          <input
-            matInput
-            autocomplete="off"
-            type="text"
-            placeholder="Name"
-            maxlength="10"
-            minlength="2"
-            formControlName="name"
-            [errorStateMatcher]="matcher"
-          />
+           <mat-label>Fuel type</mat-label>
+           <mat-select >
+             <mat-option value="option">Option</mat-option>
+           </mat-select>
         
-        <mat-error *ngIf="formOne.controls['name'].hasError('required')">
+        <mat-error class="mt-u" *ngIf="formOne.controls['name'].hasError('required')">
           Name is <strong>required</strong>
         </mat-error>
       </mat-form-field>
@@ -114,15 +108,25 @@
             matInput
             autocomplete="off"
             type="text"
-            placeholder="Price"
+            placeholder="Fuel price"
             maxlength="10"
             minlength="2"
             formControlName="priceInNaira"
             [errorStateMatcher]="matcher"
             (keydown)="numbersOnly($event)"
           />
+
+            <div matSuffix>
+              <svg width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M2.464 20V12.804H0.28V11.012H2.464V8.716H0.28V6.924H2.464V0.0079987H5.376L8.036 6.924H11.34V0.0079987H13.552V6.924H15.736V8.716H13.552V11.012H15.736V12.804H13.552V20H10.612L7.952 12.804H4.648V20H2.464ZM4.648 11.012H7.28L6.44 8.716H4.592L4.648 11.012ZM11.34 16.052H11.452L11.368 12.804H10.192L11.34 16.052ZM4.592 6.924H5.768L4.592 3.452H4.48L4.592 6.924ZM9.52 11.012H11.396L11.34 8.716H8.68L9.52 11.012Z"
+                  fill="#969696" />
+              </svg>
+
+            </div>
           
         <mat-error
+        class="mt-u"
           *ngIf="formOne.controls['priceInNaira'].hasError('required')"
         >
           Price is <strong>required</strong>
@@ -135,46 +139,60 @@
             matInput
             autocomplete="off"
             type="text"
-            placeholder="Description"
+            placeholder="Station location"
             maxlength="100"
             minlength="3"
             formControlName="description"
             [errorStateMatcher]="matcher"
           />
+            <div matSuffix><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                fill="none">
+                <path d="M3.5 22V5C3.5 3 4.84 2 6.5 2H14.5C16.16 2 17.5 3 17.5 5V22H3.5Z" stroke="#969696"
+                  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M2 22H19" stroke="#969696" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                <path
+                  d="M8.39 9.99998H12.62C13.66 9.99998 14.51 9.49999 14.51 8.10999V6.87999C14.51 5.48999 13.66 4.98999 12.62 4.98999H8.39C7.35 4.98999 6.5 5.48999 6.5 6.87999V8.10999C6.5 9.49999 7.35 9.99998 8.39 9.99998Z"
+                  stroke="#969696" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M6.5 13H9.5" stroke="#969696" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path d="M17.5 16.01L22 16V10L20 9" stroke="#969696" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg></div>
+
         </mat-form-field>
       </div>
-      <div class="input-box">
+      <div class="location">
+        <span (click)="useLocation()">
+          <img src="../../assets/use-location.svg" />
+        </span>
+        </div>
+
+      <div class="input-box mt">
         <mat-form-field appearance="outline">
           <input
             matInput
             autocomplete="off"
-            type="text"
-            placeholder="Address"
+            type="date"
+            placeholder="Date"
             maxlength="100"
             minlength="3"
             formControlName="address"
             [errorStateMatcher]="matcher"
           />
+
         </mat-form-field>
       </div>
-      <div class="location">
-        <span (click)="useLocation()">
-          <img src="../../assets/use-location.svg"/>
-        </span>
-      </div>
+ 
     
-      <div class="buttons">
+      <div class="buttons mt">
         <button
           class="ok"
           [disabled]="formOne.invalid"
           (click)="proceedWithGoogle()"
         >
-          Proceed with Google
+          Submit
         </button>
-        <span>OR</span>
-        <button class="ok" [disabled]="formOne.invalid" (click)="proceed()">
-          Proceed with email
-        </button>
+       
       </div>
     </div>
   </form>

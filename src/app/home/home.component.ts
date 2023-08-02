@@ -27,16 +27,15 @@ export class HomeComponent {
   ngOnInit() {}
 
   categorySelect() {
-       const catDialogSub = this.dialog.open(FilterDialogComponent, {
-         data: { selectedCat: '' },
-         disableClose: true,
-         backdropClass: 'blurred',
-       });
-       catDialogSub.afterClosed().subscribe((response) => {
-         if (response) {
-          
-         }
-       });
+    const catDialogSub = this.dialog.open(FilterDialogComponent, {
+      data: { selectedCat: '' },
+      disableClose: true,
+      backdropClass: 'blurred',
+    });
+    catDialogSub.afterClosed().subscribe((response) => {
+      if (response) {
+      }
+    });
   }
 
   onSet() {
@@ -57,5 +56,11 @@ export class HomeComponent {
 
   toggleSidebar(): void {
     this.showSidebar = !this.showSidebar;
+  }
+
+  showFiller: Boolean = false
+
+  SidenavAutosizeExample() {
+    this.showFiller = false;
   }
 }

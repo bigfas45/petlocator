@@ -29,7 +29,11 @@ import {NgxSliderModule} from '@angular-slider/ngx-slider';
 import { FilterResultComponent } from './filter-result/filter-result.component'
 import { MatChipsModule } from '@angular/material/chips';
 import { LandingPageComponent } from './landing-page/landing-page.component';
-import { AuthModalComponent } from './modals/auth-modal/auth-modal.component'
+import { AuthModalComponent } from './modals/auth-modal/auth-modal.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
+import { NgIf } from '@angular/common';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 const { googleMapsApiKey } = environment;
 
@@ -42,14 +46,14 @@ const { googleMapsApiKey } = environment;
     MapComponent,
     FilterDialogComponent,
     FilterResultComponent,
-   HomeComponent,
-   DetailsPageComponent,
-   PriceFormComponent,
-   MapComponent,
-   FilterDialogComponent,
-   FilterResultComponent,
-   LandingPageComponent,
-   AuthModalComponent,
+    HomeComponent,
+    DetailsPageComponent,
+    PriceFormComponent,
+    MapComponent,
+    FilterDialogComponent,
+    FilterResultComponent,
+    LandingPageComponent,
+    AuthModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,7 +72,10 @@ const { googleMapsApiKey } = environment;
     MatDialogModule,
     MatSliderModule,
     NgxSliderModule,
-    
+    MatMenuModule,
+    MatSidenavModule,
+    MatButtonModule,
+
     // SidebarModule,
     AgmCoreModule.forRoot({
       apiKey: googleMapsApiKey,

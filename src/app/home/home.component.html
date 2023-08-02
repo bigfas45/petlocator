@@ -12,9 +12,9 @@
             <img src="../../assets/Group 38.png" alt="" class="nav-logo" />
 
           </div>
-          <div class="box" (click)="categorySelect()">
+          <div class="box" [matMenuTriggerFor]="accounSelectMenu">
             <div class="input-box">
-              <button mat-button class="input input-button" (click)="categorySelect()" type="button">
+              <button mat-button class="input input-button" [matMenuTriggerFor]="accounSelectMenu" type="button">
 
                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
                   <path
@@ -61,12 +61,18 @@
       </div>
     </nav>
 
-  
+     <mat-menu #accounSelectMenu="matMenu" class="mat-menu">
+     
+      <div class="mod-filter">
+
+      </div>
+    
+     </mat-menu>
 
 
-    <div class="box-search" (click)="categorySelect()">
+    <div class="box-search" [matMenuTriggerFor]="accounSelectMenu">
       <div class="input-box-small">
-        <button mat-button class="input input-button" (click)="categorySelect()" type="button">
+        <button mat-button class="input input-button" [matMenuTriggerFor]="accounSelectMenu" type="button">
 
           <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
             <path

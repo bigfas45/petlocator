@@ -51,7 +51,7 @@ img:not(.nav-logo, .avart) {
 
 .DetailTiltle {
   color: var(--black, #000c44);
-  font-family: TT Firs Neue Trl;
+  font-family: TT Firs Neue Trail;
   font-size: 22px;
   font-style: normal;
   font-weight: 500;
@@ -83,7 +83,7 @@ img:not(.nav-logo, .avart) {
 
 .detil-b-t {
   color: var(--black, #000c44);
-  font-family: "TT Firs Neue Trl", sans-serif;
+  font-family: "TT Firs Neue Trail", sans-serif;
   font-size: 22px;
   font-style: normal;
   font-weight: 500;
@@ -92,7 +92,7 @@ img:not(.nav-logo, .avart) {
 
 .span-1 {
   color: var(--black, #000c44);
-  font-family: "TT Firs Neue Trl" sans-serif;
+  font-family: "TT Firs Neue Trail" sans-serif;
   font-size: 15px;
   font-style: normal;
   font-weight: 500;
@@ -101,7 +101,7 @@ img:not(.nav-logo, .avart) {
 
 .span-2 {
   color: #c5c5c5;
-  font-family: "TT Firs Neue Trl" sans-serif;
+  font-family: "TT Firs Neue Trail" sans-serif;
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
@@ -110,7 +110,7 @@ img:not(.nav-logo, .avart) {
 
 .span-3 {
   color: var(--text-color, #969696);
-  font-family: "TT Firs Neue Trl" sans-serif;
+  font-family: "TT Firs Neue Trail" sans-serif;
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
@@ -131,7 +131,7 @@ img:not(.nav-logo, .avart) {
 .pump-text {
   color: var(--black, #000c44);
   text-align: center;
-  font-family: " TT Firs Neue Trl" sans-serif;
+  font-family: " TT Firs Neue Trail" sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
@@ -172,7 +172,7 @@ img:not(.nav-logo, .avart) {
   span {
     color: #fff;
     text-align: center;
-    font-family: "TT Firs Neue Trl", sans-serif;
+    font-family: "TT Firs Neue Trail", sans-serif;
     font-size: 20px;
     font-style: normal;
     font-weight: 500;
@@ -204,7 +204,7 @@ img:not(.nav-logo, .avart) {
 }
 .txt-alert {
   color: var(--red, #f00);
-  font-family: "TT Firs Neue Trl", sans-serif;
+  font-family: "TT Firs Neue Trail", sans-serif;
   font-size: 15px;
   font-style: normal;
   font-weight: 500;
@@ -214,7 +214,7 @@ img:not(.nav-logo, .avart) {
 .alert-text-p {
   color: var(--red, #f00);
   text-align: justify;
-  font-family: "TT Firs Neue Trl", sans-serif;
+  font-family: "TT Firs Neue Trail", sans-serif;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
@@ -238,7 +238,7 @@ textarea {
   padding: 1rem;
 
   color: var(--text-color, #969696);
-  font-family: "TT Firs Neue Trl" sans-serif;
+  font-family: "TT Firs Neue Trail" sans-serif;
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
@@ -248,7 +248,7 @@ textarea {
 .txt-nnn {
   color: var(--black, #000c44);
   text-align: center;
-  font-family: " TT Firs Neue Trl", sans-serif;
+  font-family: " TT Firs Neue Trail", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
@@ -257,7 +257,7 @@ textarea {
 
 .txt-nnn-2 {
   color: var(--text-color, #969696);
-  font-family: " TT Firs Neue Trl", sans-serif;
+  font-family: " TT Firs Neue Trail", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
@@ -286,7 +286,7 @@ textarea {
   display: flex;
   color: #000;
   text-align: center;
-  font-family: TT Firs Neue Trl;
+  font-family: TT Firs Neue Trail;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
@@ -304,7 +304,7 @@ textarea {
 
   color: var(--white, #fff);
   text-align: center;
-  font-family: "TT Firs Neue Trl", sans-serif;
+  font-family: "TT Firs Neue Trail", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
@@ -333,7 +333,31 @@ textarea {
   background: #fff;
 }
 
+.mt{
+  margin-top: 0.5rem;
+}
+
+.mt-u{
+    margin-top: 1rem;
+
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+
+border-radius: 10px !important;
+border: 1px solid rgba(67, 97, 238, 0.50) !important;
+background: var(--white, #FFF) !important;
+}
+
+
+.mat-form-field-outline {
+    background: red !important;
+}
+
 @media screen and (min-width: 992px) {
+
+ 
+
   .sec-alert {
     // display: flex;
     // justify-content: space-between;
@@ -361,7 +385,7 @@ textarea {
     span {
       color: #fff;
       text-align: center;
-      font-family: "TT Firs Neue Trl", sans-serif;
+      font-family: "TT Firs Neue Trail", sans-serif;
       font-size: 20px;
       font-style: normal;
       font-weight: 500;
@@ -422,6 +446,14 @@ textarea {
 
   .topic {
     margin-bottom: 30px;
+    color: var(--black, #000C44);
+text-align: center;
+font-family: 'TT Firs Neue Trail';
+font-size: 15px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+display: table-footer-group;
   }
 
   @media only screen and (max-width: 500px) {
@@ -433,6 +465,7 @@ textarea {
 .input-box {
   display: flex;
   flex-direction: column;
+  margin-bottom: 1.5rem;
 
   .input-bar {
     display: flex;
@@ -487,6 +520,7 @@ a {
 .location {
   display: flex;
   justify-content: flex-end;
+  margin-top: -1rem;
 
   span img {
     height: 18px;
