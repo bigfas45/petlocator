@@ -34,16 +34,11 @@ export class HomeComponent {
 
     this.urlParams = new URLSearchParams(window.location.search);
     this.myParam = this.urlParams.get('token');
-
-
-    // Serialize the data to JSON
     const serializedData = JSON.stringify(this.myParam);
 
-        console.log(serializedData);
-
-
-    // Save data to LocalStorage with the key 'userData'
-    if (serializedData) {
+    console.log(serializedData);
+    
+    if (serializedData !== null) {
           localStorage.setItem('userData', serializedData);
 
     }
