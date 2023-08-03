@@ -38,9 +38,9 @@ export class HomeComponent {
 
     console.log(serializedData);
     
-    if (serializedData !== null) {
-          localStorage.setItem('userData', serializedData);
-
+    if (serializedData === null) {
+    } else {
+      localStorage.setItem('userData', serializedData);
     }
   }
 
