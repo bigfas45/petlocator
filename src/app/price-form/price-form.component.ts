@@ -29,10 +29,14 @@ export class AnErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./price-form.component.scss'],
 })
 export class PriceFormComponent implements OnInit {
-  constructor(private router: Router) { }
-  
-  
+  constructor(private router: Router) {}
 
+  serializedData: any = '';
+
+  token: any = '';
+
+  // // Deserialize the data back into an object
+  // data = JSON.parse(serializedData);
 
   name = new FormControl('', [Validators.required]);
   priceInNaira = new FormControl('', [Validators.required]);
@@ -43,32 +47,40 @@ export class PriceFormComponent implements OnInit {
     name: this.name,
     priceInNaira: this.priceInNaira,
     description: this.description,
-    address: this.address
+    address: this.address,
   });
 
   ngOnInit(): void {
-    this.getCurrentLocation()
+    this.getCurrentLocation();
+
+    this.serializedData = localStorage.getItem('userData');
+    this.token = JSON.parse(this.serializedData);
+
+
+    console.log(this.token);
+    
   }
 
-  proceedWithGoogle () {
-    location.href ='https://crowdfo-63ff986763ab.herokuapp.com/api/v1/auth/google';
+  proceedWithGoogle() {
+    location.href =
+      'https://crowdfo-63ff986763ab.herokuapp.com/api/v1/auth/google';
   }
 
-  addressText = ''
+  addressText = '';
 
-  useLocation () {
-      this.address.setValue('Oando Filling Station, Ikeja, Lagos');
+  useLocation() {
+    this.address.setValue('Oando Filling Station, Ikeja, Lagos');
   }
 
-  proceed () {}
+  proceed() {}
 
   numbersOnly(event: any) {
     const pattern = /[0-9]/;
     if (
       !pattern.test(event.key) &&
-      event.key !== "Backspace" &&
-      event.key !== "ArrowRight" &&
-      event.key !== "ArrowLeft"
+      event.key !== 'Backspace' &&
+      event.key !== 'ArrowRight' &&
+      event.key !== 'ArrowLeft'
     ) {
       event.preventDefault();
     }
@@ -77,7 +89,7 @@ export class PriceFormComponent implements OnInit {
   matcher = new AnErrorStateMatcher();
 
   back() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/home']);
   }
 
   // initial center position for the map
@@ -88,7 +100,7 @@ export class PriceFormComponent implements OnInit {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position: any) => {
         if (position) {
-          console.log(position)
+          console.log(position);
           this.lat = position.coords.latitude;
           this.lng = position.coords.longitude;
           // this.locationsNearby(this.lng, this.lat, this.selectedOption);
@@ -102,13 +114,12 @@ export class PriceFormComponent implements OnInit {
         }
       });
     }
-
   }
 
   items = [
     {
       name: 'Petrol/PMS',
-      id: '122'
+      id: '122',
     },
     {
       name: 'Kerosine',
@@ -116,7 +127,12 @@ export class PriceFormComponent implements OnInit {
     },
     {
       name: 'Cooking Gas',
-      id: '126'
-    }
-  ]
+      id: '126',
+    },
+  ];
+
+  createPrice() {
+        this.router.navigate(['/home']);
+
+  }
 }

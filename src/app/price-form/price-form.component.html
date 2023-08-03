@@ -185,15 +185,25 @@
       </div>
  
     
-      <div class="buttons mt">
+
+
+      
+
+      <div *ngIf="token" class="buttons mt">
         <button
           class="ok"
-          (click)="proceedWithGoogle()"
+          (click)="createPrice()"
         >
           Submit
-        </button>
-       
+        </button>       
       </div>
+
+        <div *ngIf="!token" class="buttons mt">
+          <button class="ok" (click)="proceedWithGoogle()">
+            Proceed to Signup
+          </button>
+    </div>
+
     </div>
   </form>
 </main>

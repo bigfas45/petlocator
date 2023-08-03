@@ -29,7 +29,7 @@
         <span>Discover</span>
         <img src="../../assets/search.svg" />
       </button>
-      <div class="signup" (click)="openAuthModal()">
+      <div *ngIf="!token" class="signup" (click)="openAuthModal()">
         <img src="../../assets/signup.svg" alt="" />
       </div>
     </div>

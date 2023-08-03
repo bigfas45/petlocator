@@ -14,12 +14,20 @@ export class LandingPageComponent implements OnInit {
     public dialog: MatDialog,
     private router: Router,
     private restService: RestService
-  ) { }
-  
-  data: any
+  ) {}
+
+  data: any;
+  serializedData: any = '';
+
+  token: any = '';
 
   ngOnInit(): void {
-    this.getClosest()
+    this.getClosest();
+
+  this.serializedData = localStorage.getItem('userData');
+  this.token = JSON.parse(this.serializedData);
+
+  console.log(this.token);
   }
 
   openAuthModal() {
@@ -38,7 +46,6 @@ export class LandingPageComponent implements OnInit {
       next: (res) => {
         console.log(res);
         this.data = res;
-
       },
       error: ({ error }) => {
         console.log(error);
