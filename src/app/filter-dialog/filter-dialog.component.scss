@@ -1,13 +1,15 @@
 .dialog-container{
   display: flex;
   flex-direction: column;
-  width: 60vw;
-  height: 80vh;
+  // width: 60vw;
+  height: 90vh;
+  padding-bottom: 2rem;
+
 
 
    div:nth-child(1) {
      color: var(--black, #000C44);
-font-family: 'TT Firs Neue Trail', sans-serif;
+font-family: 'TT Firs Neue Trail'f;
 font-size: 20px;
 font-style: normal;
 font-weight: 500;
@@ -16,7 +18,7 @@ line-height: normal;
 
      div:nth-child(2) {
    color: #4361EE;
-font-family: TT Firs Neue Trail;
+font-family: 'TT Firs Neue Trail';
 font-size: 15px;
 font-style: normal;
 font-weight: 500;
@@ -39,7 +41,7 @@ mat-slider {
 
 .price-rng{
   color: #4361EE;
-font-family: 'TT Firs Neue Trail', sans-serif;
+font-family: 'TT Firs Neue Trail'f;
 font-size: 15px;
 font-style: normal;
 font-weight: 500;
@@ -58,12 +60,21 @@ background: #fff;
 margin-top: 0.5rem;
 justify-content: center;
 border: 1px solid #BAC6FF;
+margin-right: 1rem;
+
+}
+
+.section-center {
+  width: 90vw;
+  margin: 0 auto;
+  max-width: 1390px;
 }
 
 
 .btn-item-active{
   display: flex;
-  
+  font-family: 'TT Firs Neue Trail';
+
   justify-content: space-around;
 width: 87px;
 height: 25px;
@@ -73,7 +84,10 @@ background: #4361EE;
 margin-top: 0.5rem;
 border: none;
 justify-content: center;
+margin-right: 1rem;
 }
+
+
 
 
 
@@ -83,7 +97,7 @@ justify-content: center;
 
 color: var(--black, #000C44);
 text-align: center;
-font-family: TT Firs Neue Trail;
+font-family: 'TT Firs Neue Trail';
 font-size: 10px;
 font-style: normal;
 font-weight: 400;
@@ -96,7 +110,7 @@ align-items: center;
   display: flex;
   color: #FFF;
 text-align: center;
-font-family: 'TT Firs Neue Trail', sans-serif;
+font-family: 'TT Firs Neue Trail'f;
 font-size: 10px;
 font-style: normal;
 font-weight: 400;
@@ -133,9 +147,19 @@ border: none;
 .inner-btn-text{
   color: #FFF;
 text-align: center;
-font-family: 'TT Firs Neue Trail', sans-serif;
+font-family: 'TT Firs Neue Trail'f;
 font-size: 15px;
 font-style: normal;
 font-weight: 500;
 line-height: normal;
+}
+
+.location {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -1rem;
+
+  span img {
+    height: 18px;
+  }
 }

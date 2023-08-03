@@ -526,3 +526,9 @@ a {
     height: 18px;
   }
 }
+
+
+.mat-form-field-appearance-outline .mat-form-field-prefix, .mat-form-field-appearance-outline .mat-form-field-suffix {
+    top: 0.25em;
+    margin-top: 1rem;
+}

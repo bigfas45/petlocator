@@ -20,11 +20,16 @@ export class HomeComponent {
     private _snackBar: MatSnackBar,
     private router: Router,
     public dialog: MatDialog
+    
   ) {}
 
   data: boolean = false;
 
-  ngOnInit() {}
+  nData: any
+
+  ngOnInit() {
+    this.getClosest()
+  }
 
   categorySelect() {
     const catDialogSub = this.dialog.open(FilterDialogComponent, {
@@ -58,9 +63,25 @@ export class HomeComponent {
     this.showSidebar = !this.showSidebar;
   }
 
-  showFiller: Boolean = false
+  showFiller: Boolean = false;
 
   SidenavAutosizeExample() {
     this.showFiller = false;
+  }
+
+  getClosest() {
+    this.rest.getNearby().subscribe({
+      next: (res) => {
+        console.log(res.data);
+        this.nData = res.data.productsNearby;
+      },
+      error: ({ error }) => {
+        console.log(error);
+
+        //  if (error.appName || error.appURL || error.appURL ) {
+        //    this.controlForm.setErrors({credentials: true})
+        //  }
+      },
+    });
   }
 }

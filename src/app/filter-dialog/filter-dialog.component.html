@@ -1,9 +1,9 @@
-<div class="dialog-container">
+<div class="dialog-container ">
   <div class="mGUp">
     Filter by
   </div>
 
-  <div class="mGUp">
+  <div class="mGUp ">
     Price range
   </div>
 
@@ -13,15 +13,15 @@
 
 
    <div class="price-rng mGUp">
-     Price range
+     Sort by
    </div>
 
-   <div style="display: flex; flex-direction: row; justify-content: space-around;">
-    <div class="btn-item-active">
-     <span class="btn-text-active">CHEAPEST</span>
-    </div>
-      <div class="btn-item">
-        <span class="btn-text">NEAREST</span>
+   <div style="display: flex; flex-direction: row; ">
+     <div [class]="sortBy==='CHEAPEST' ? 'btn-item-active': 'btn-item' " (click)="sortByF('CHEAPEST')">
+       <span [class]="sortBy==='CHEAPEST' ? 'btn-text-active': 'btn-text' ">CHEAPEST</span>
+     </div>
+      <div [class]="sortBy==='NEAREST' ? 'btn-item-active': 'btn-item' " (click)="sortByF('NEAREST')">
+        <span [class]="sortBy==='NEAREST' ? 'btn-text-active': 'btn-text' ">NEAREST</span>
       </div>
    </div>
 
@@ -30,16 +30,17 @@
        Fuel type
      </div>
 
-     <div style="display: flex; flex-direction: row; justify-content: space-around;">
-       <div class="btn-item-active">
-         <span class="btn-text-active">PETROL</span>
+     <div style="display: flex; flex-direction: row">
+       <div [class]="typeP==='PETROL' ? 'btn-item-active': 'btn-item' " (click)="typeF('PETROL')">
+         <span [class]="typeP==='PETROL' ? 'btn-text-active': 'btn-text' ">PETROL</span>
        </div>
-       <div class="btn-item">
-         <span class="btn-text">DIESEL</span>
-       </div>
+        <div [class]="typeP==='DIESEL' ? 'btn-item-active': 'btn-item' " (click)="typeF('DIESEL')">
+          <span [class]="typeP==='DIESEL' ? 'btn-text-active': 'btn-text' ">DIESEL</span>
+        </div>
 
-
-
+           <div [class]="typeP==='KEROSENE' ? 'btn-item-active': 'btn-item' " (click)="typeF('KEROSENE')">
+             <span [class]="typeP==='KEROSENE' ? 'btn-text-active': 'btn-text' ">KEROSENE</span>
+           </div>
 
      </div>
 
@@ -48,23 +49,29 @@
        Fuel brand
      </div>
 
-     <div style="display: flex; flex-direction: row; justify-content: space-around;">
-       <div class="btn-item-active">
-         <span class="btn-text-active">OANDO</span>
+     <div style="display: flex; flex-direction: row;">
+       <div [class]="activeBrand==='OANDO' ? 'btn-item-active': 'btn-item' " (click)="activate('OANDO')">
+         <span [class]="activeBrand==='OANDO' ? 'btn-text-active': 'btn-text' ">OANDO</span>
        </div>
-       <div class="btn-item">
-         <span class="btn-text">CONOIL</span>
+       <div [class]="activeBrand==='CONOIL' ? 'btn-item-active': 'btn-item' " (click)="activate('CONOIL')">
+         <span [class]="activeBrand==='CONOIL' ? 'btn-text-active' : 'btn-text' ">CONOIL</span>
        </div>
+
+
+           <div [class]="activeBrand==='AP' ? 'btn-item-active': 'btn-item' " (click)="activate('AP')">
+             <span [class]="activeBrand==='AP' ? 'btn-text-active' : 'btn-text' ">AP</span>
+           </div>
 
      </div>
 
-     <div style="display: flex; flex-direction: row; justify-content: space-around;">
-       <div class="btn-item-active">
-         <span class="btn-text-active">TOTAL</span>
+     <div style="display: flex; flex-direction: row">
+
+       <div [class]="activeBrand==='TOTAL' ? 'btn-item-active': 'btn-item' " (click)="activate('TOTAL')">
+         <span [class]="activeBrand==='TOTAL' ? 'btn-text-active' : 'btn-text' ">TOTAL</span>
        </div>
-       <div class="btn-item">
-         <span class="btn-text">CONOIL</span>
-       </div>
+<div [class]="activeBrand==='NNPC' ? 'btn-item-active': 'btn-item' " (click)="activate('NNPC')">
+  <span [class]="activeBrand==='NNPC' ? 'btn-text-active' : 'btn-text' ">NNPC</span>
+</div>
 
      </div>
 
@@ -73,12 +80,36 @@
      </div>
 
      <div class="input-box">
-       <mat-form-field appearance="outline">
-         <input matInput autocomplete="off" type="text" placeholder="Set location"
-           />
-       
-       </mat-form-field>
-     </div>
+         <div class="input-box">
+           <mat-form-field appearance="outline">
+             <input matInput autocomplete="off" type="text" placeholder="Set location" maxlength="100" minlength="3"
+               />
+             <div matSuffix><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                 fill="none">
+                 <path d="M3.5 22V5C3.5 3 4.84 2 6.5 2H14.5C16.16 2 17.5 3 17.5 5V22H3.5Z" stroke="#969696"
+                   stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                 <path d="M2 22H19" stroke="#969696" stroke-width="1.5" stroke-linecap="round"
+                   stroke-linejoin="round" />
+                 <path
+                   d="M8.39 9.99998H12.62C13.66 9.99998 14.51 9.49999 14.51 8.10999V6.87999C14.51 5.48999 13.66 4.98999 12.62 4.98999H8.39C7.35 4.98999 6.5 5.48999 6.5 6.87999V8.10999C6.5 9.49999 7.35 9.99998 8.39 9.99998Z"
+                   stroke="#969696" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                 <path d="M6.5 13H9.5" stroke="#969696" stroke-width="1.5" stroke-linecap="round"
+                   stroke-linejoin="round" />
+                 <path d="M17.5 16.01L22 16V10L20 9" stroke="#969696" stroke-width="1.5" stroke-linecap="round"
+                   stroke-linejoin="round" />
+               </svg></div>
+
+             </mat-form-field>
+             </div>
+
+                 <div class="location">
+                   <span (click)="useLocation()">
+                     <img src="../../assets/use-location.svg" />
+                   </span>
+                 </div>
+
+
+                 
 
        <button class="price-btn" (click)="price()">
          <span class="inner-btn-text">Apply filter</span>
