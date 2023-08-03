@@ -19,11 +19,11 @@ export class HomeComponent {
     public rest: RestService,
     private _snackBar: MatSnackBar,
     private router: Router,
-    public dialog: MatDialog
+    public dialog: MatDialog,
   ) {}
 
   urlParams: any;
-  myParam: any
+  myParam: any;
 
   data: boolean = false;
 
@@ -35,8 +35,18 @@ export class HomeComponent {
     this.urlParams = new URLSearchParams(window.location.search);
     this.myParam = this.urlParams.get('token');
 
-    console.log(this.myParam);
-    
+
+    // Serialize the data to JSON
+    const serializedData = JSON.stringify(this.myParam);
+
+        console.log(serializedData);
+
+
+    // Save data to LocalStorage with the key 'userData'
+    if (serializedData) {
+          localStorage.setItem('userData', serializedData);
+
+    }
   }
 
   categorySelect() {
