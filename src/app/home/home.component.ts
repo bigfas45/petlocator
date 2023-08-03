@@ -20,15 +20,23 @@ export class HomeComponent {
     private _snackBar: MatSnackBar,
     private router: Router,
     public dialog: MatDialog
-    
   ) {}
+
+  urlParams: any;
+  myParam: any
 
   data: boolean = false;
 
-  nData: any
+  nData: any;
 
   ngOnInit() {
-    this.getClosest()
+    this.getClosest();
+
+    this.urlParams = new URLSearchParams(window.location.search);
+    this.myParam = this.urlParams.get('token');
+
+    console.log(this.myParam);
+    
   }
 
   categorySelect() {
