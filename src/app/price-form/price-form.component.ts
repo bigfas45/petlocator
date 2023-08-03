@@ -54,10 +54,14 @@ export class PriceFormComponent implements OnInit {
     this.getCurrentLocation();
 
     this.serializedData = localStorage.getItem('userData');
-    this.token = JSON.parse(this.serializedData);
+
+    // console.log(this.serializedData);
+    
+
+    this.token = this.serializedData;
 
 
-    console.log(this.token);
+    // console.log(this.token);
     
   }
 

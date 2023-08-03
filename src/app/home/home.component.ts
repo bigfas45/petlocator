@@ -34,13 +34,16 @@ export class HomeComponent {
 
     this.urlParams = new URLSearchParams(window.location.search);
     this.myParam = this.urlParams.get('token');
-    const serializedData = JSON.stringify(this.myParam);
+    // const serializedData = JSON.stringify(this.myParam);
 
-    console.log(serializedData);
+
     
-    if (serializedData === null) {
+    if (!this.myParam) {
+      console.log('not to be null', this.myParam);
     } else {
-      localStorage.setItem('userData', serializedData);
+      console.log(' to be null', this.myParam);
+
+      localStorage.setItem('userData', this.myParam);
     }
   }
 
@@ -85,7 +88,7 @@ export class HomeComponent {
   getClosest() {
     this.rest.getNearby().subscribe({
       next: (res) => {
-        console.log(res.data);
+        // console.log(res.data);
         this.nData = res.data.productsNearby;
       },
       error: ({ error }) => {

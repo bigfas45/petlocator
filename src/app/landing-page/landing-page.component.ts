@@ -25,9 +25,9 @@ export class LandingPageComponent implements OnInit {
     this.getClosest();
 
   this.serializedData = localStorage.getItem('userData');
-  this.token = JSON.parse(this.serializedData);
+  this.token = this.serializedData;
 
-  console.log(this.token);
+  // console.log(this.token);
   }
 
   openAuthModal() {
