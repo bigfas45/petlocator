@@ -12,7 +12,7 @@
             <img src="../../assets/Group 38.png" alt="" class="nav-logo" />
 
           </div>
-          <div class="box" (click)="categorySelect()">
+<div [class]="showSidebar? 'box box-none' : 'box' " (click)="categorySelect()">
             <div class="input-box">
               <button mat-button class="input input-button" [matMenuTriggerFor]="accounSelectMenu" type="button">
 
@@ -61,6 +61,97 @@
       </div>
     </nav>
 
+<aside [class]="showSidebar ? 'sidebar show' : 'sidebar' " id="sidebar">
+  <div class="aside-con">
+    <div class="icon-can mb" (click)="toggleSidebar()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <path d="M2 2L18 18" stroke="#000C44" stroke-width="3" stroke-linecap="round" />
+        <path d="M2 18L18 2" stroke="#000C44" stroke-width="3" stroke-linecap="round" />
+      </svg>
+    </div>
+
+
+    <div class="icon-can mt">
+      <span class="usern mr">Kabiru Lawal</span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="49" height="49" viewBox="0 0 49 49" fill="none">
+        <circle cx="24.5" cy="24.5" r="24.5" fill="#EBEBEB" />
+        <path
+          d="M24.8151 22.87C24.7151 22.86 24.5951 22.86 24.4851 22.87C22.1051 22.79 20.2151 20.84 20.2151 18.44C20.2151 15.99 22.1951 14 24.6551 14C27.1051 14 29.0951 15.99 29.0951 18.44C29.0851 20.84 27.1951 22.79 24.8151 22.87Z"
+          stroke="#000C44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        <path
+          d="M19.815 26.56C17.395 28.18 17.395 30.82 19.815 32.43C22.565 34.27 27.075 34.27 29.825 32.43C32.245 30.81 32.245 28.17 29.825 26.56C27.085 24.73 22.575 24.73 19.815 26.56Z"
+          stroke="#000C44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </div>
+
+    <hr class="hr-o">
+
+
+    <div class="icon-can mt">
+      <span class="usern mr">Station list</span>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g id="vuesax/linear/document-text">
+          <g id="document-text">
+            <path id="Vector" d="M22 10V15C22 20 20 22 15 22H9C4 22 2 20 2 15V9C2 4 4 2 9 2H14" stroke="#000C44"
+              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path id="Vector_2" d="M22 10H18C15 10 14 9 14 6V2L22 10Z" stroke="#000C44" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round" />
+            <path id="Vector_3" d="M7 13H13" stroke="#000C44" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+            <path id="Vector_4" d="M7 17H11" stroke="#000C44" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </g>
+        </g>
+      </svg>
+
+    </div>
+
+    <div class="icon-can mt">
+      <span class="usern mr">Change password</span>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g id="vuesax/linear/setting">
+          <g id="setting">
+            <path id="Vector"
+              d="M3 9.11011V14.8801C3 17.0001 3 17.0001 5 18.3501L10.5 21.5301C11.33 22.0101 12.68 22.0101 13.5 21.5301L19 18.3501C21 17.0001 21 17.0001 21 14.8901V9.11011C21 7.00011 21 7.00011 19 5.65011L13.5 2.47011C12.68 1.99011 11.33 1.99011 10.5 2.47011L5 5.65011C3 7.00011 3 7.00011 3 9.11011Z"
+              stroke="#000C44" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path id="Vector_2"
+              d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z"
+              stroke="#000C44" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          </g>
+        </g>
+      </svg>
+
+
+    </div>
+
+
+    <div class="icon-can mt">
+      <span class="usern-r mr">Logout</span>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g id="vuesax/linear/logout">
+          <g id="logout">
+            <path id="Vector" d="M17.44 14.62L20 12.06L17.44 9.5" stroke="#FF0000" stroke-width="1.5"
+              stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+            <path id="Vector_2" d="M9.76001 12.0601H19.93" stroke="#FF0000" stroke-width="1.5" stroke-miterlimit="10"
+              stroke-linecap="round" stroke-linejoin="round" />
+            <path id="Vector_3" d="M11.76 20C7.34001 20 3.76001 17 3.76001 12C3.76001 7 7.34001 4 11.76 4"
+              stroke="#FF0000" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </g>
+        </g>
+      </svg>
+
+
+
+    </div>
+
+
+
+
+
+  </div>
+</aside>
+
      <mat-menu #accounSelectMenu="matMenu" class="mat-menu">
      
       <div class="mod-filter">
@@ -70,7 +161,7 @@
      </mat-menu>
 
 
-    <div class="box-search" (click)="categorySelect()">
+    <div [class]="showSidebar? 'box-search box-none' : 'box-search'" (click)=" categorySelect()">
       <div class="input-box-small">
         <button mat-button class="input input-button" (click)="categorySelect()" type="button">
 
