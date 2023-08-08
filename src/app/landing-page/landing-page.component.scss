@@ -2,9 +2,10 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100vh;
+  height: 90vh;
   background-size: cover;
   background-image: url("../../assets/fuelstation-desktop.jpg");
+  padding-bottom: 2rem;
 
   @media only screen and (max-width: 500px) {
     background-image: unset;
@@ -19,7 +20,7 @@ main {
 
       .upper {
         width: 100%;
-        height: 58%;
+        height: 50%;
       }
       .card {
         display: flex;

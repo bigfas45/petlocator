@@ -201,8 +201,7 @@
 
   <div class="history-row">
     <div *ngFor="let control of nData"  class="history-con section-center">
-      <div class="d-v-1">
-
+<div class="d-v-1" [style.background-image]="'url(' + control.imageURL + ')'">
       </div>
       <div (click)="redirect()">
            <div class="x-p">

@@ -9,11 +9,13 @@
 
    div:nth-child(1) {
      color: var(--black, #000C44);
-font-family: 'TT Firs Neue Trail'f;
+font-family: 'TT Firs Neue Trail';
 font-size: 20px;
 font-style: normal;
 font-weight: 500;
 line-height: normal;
+width: auto;
+padding: 6px;
     }
 
      div:nth-child(2) {
@@ -52,7 +54,7 @@ line-height: normal;
   display: flex;
   
   justify-content: space-around;
-width: 87px;
+width: auto;
 height: 25px;
 flex-shrink: 0;
 border-radius: 5px;
@@ -61,6 +63,7 @@ margin-top: 0.5rem;
 justify-content: center;
 border: 1px solid #BAC6FF;
 margin-right: 1rem;
+padding: 6px;
 
 }
 
