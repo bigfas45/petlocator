@@ -20,6 +20,10 @@ export class LandingPageComponent implements OnInit {
   serializedData: any = '';
 
   token: any = '';
+  // initial center position for the map
+  lat: number = 0;
+  lng: number = 0;
+  currentAddress: string;
 
   ngOnInit(): void {
     this.getClosest();
@@ -44,18 +48,32 @@ export class LandingPageComponent implements OnInit {
 
 
   getClosest() {
-    this.restService.getNearby().subscribe({
-      next: (res) => {
-        console.log(res);
-        this.data = res;
-      },
-      error: ({ error }) => {
-        console.log(error);
-
-        //  if (error.appName || error.appURL || error.appURL ) {
-        //    this.controlForm.setErrors({credentials: true})
-        //  }
-      },
-    });
+  
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((position: any) => {
+          if (position) {
+            this.lat = position.coords.latitude;
+            this.lng = position.coords.longitude;
+            this.restService.getNearby(this.lng, this.lat).subscribe({
+              next: (res) => {
+                console.log(res);
+                this.data = res;
+              },
+              error: ({ error }) => {
+                console.log(error);
+        
+              },
+            });
+            this.restService
+              .reverseGeocoding(this.lng, this.lat)
+              .subscribe((response: any) => {
+                const currentLocation = response.results[0].formatted_address;
+                this.currentAddress = currentLocation;
+              });
+          }
+        });
+      }
+    
+    
   }
 }

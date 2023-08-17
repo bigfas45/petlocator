@@ -34,10 +34,10 @@ export class RestService {
     return this.http.post(`https://crowdfo-63ff986763ab.herokuapp.com/api/v1/products`, payload);
   }
 
-  getNearby(): Observable<any> {
+  getNearby(longitude: number, latitude: number): Observable<any> {
     return this.http
       .get(
-        `https://crowdfo-63ff986763ab.herokuapp.com/api/v1/products?longitude=3.409565824020248&latitude=6.4297428551366975`
+        `https://crowdfo-63ff986763ab.herokuapp.com/api/v1/products?longitude=${longitude}&latitude=${latitude}`
       )
       .pipe(catchError(this.handleError));
   }

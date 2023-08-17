@@ -18,7 +18,7 @@ import { FormControl } from '@angular/forms';
 })
 export class HomeComponent {
   constructor(
-    public rest: RestService,
+    public restService: RestService,
     private _snackBar: MatSnackBar,
     private router: Router,
     public dialog: MatDialog
@@ -35,6 +35,10 @@ export class HomeComponent {
   horizontalPosition: MatSnackBarHorizontalPosition = 'start';
   verticalPosition: MatSnackBarVerticalPosition = 'bottom';
   userInfo: any;
+    // initial center position for the map
+    lat: number = 0;
+    lng: number = 0;
+    currentAddress: string;
 
   ngOnInit() {
     this.getClosest();
@@ -51,7 +55,7 @@ export class HomeComponent {
 
     const newLocationInStore = localStorage.getItem('newLocation');
     if (newLocationInStore !== null) {
-      this.rest.addProduct(JSON.parse(newLocationInStore)).subscribe((response => {
+      this.restService.addProduct(JSON.parse(newLocationInStore)).subscribe((response => {
         localStorage.removeItem('newLocation');
         this.openSnackBar('Item added successfully')
       }), error => {
@@ -121,16 +125,34 @@ export class HomeComponent {
   }
 
   getClosest() {
-    this.rest.getNearby().subscribe({
-      next: (res) => {
-        // console.log(res.data);
-        this.nData = res.data.productsNearby;
-      },
-      error: ({ error }) => {
-        console.log(error);
-      },
-    });
-  }
+  
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position: any) => {
+        if (position) {
+          this.lat = position.coords.latitude;
+          this.lng = position.coords.longitude;
+          this.restService.getNearby(this.lng, this.lat).subscribe({
+            next: (res) => {
+              console.log(res);
+              this.data = res;
+            },
+            error: ({ error }) => {
+              console.log(error);
+      
+            },
+          });
+          this.restService
+            .reverseGeocoding(this.lng, this.lat)
+            .subscribe((response: any) => {
+              const currentLocation = response.results[0].formatted_address;
+              this.currentAddress = currentLocation;
+            });
+        }
+      });
+    }
+  
+  
+}
 
   useLocation() {
     this.address.setValue('Oando Filling Station, Ikeja, Lagos');
