@@ -4,6 +4,7 @@ import {
   MatSnackBarHorizontalPosition,
   MatSnackBarVerticalPosition,
 } from '@angular/material/snack-bar';
+import jwtDecode from 'jwt-decode';
 import { NavigationExtras, Router } from '@angular/router';
 import { RestService } from '../services/rest.service';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
@@ -33,17 +34,18 @@ export class HomeComponent {
   newLocation: any;
   horizontalPosition: MatSnackBarHorizontalPosition = 'start';
   verticalPosition: MatSnackBarVerticalPosition = 'bottom';
+  userInfo: any;
 
   ngOnInit() {
     this.getClosest();
     this.urlParams = new URLSearchParams(window.location.search);
     this.myParam = this.urlParams.get('token');
+    this.userInfo = jwtDecode(this.myParam);
 
     if (!this.myParam) {
       console.log('not to be null', this.myParam);
     } else {
       console.log(' to be null', this.myParam);
-
       localStorage.setItem('userData', this.myParam);
     }
 
