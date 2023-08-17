@@ -34,6 +34,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { NgIf } from '@angular/common';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { AutocompleteComponent } from './components/autocomplete/autocomplete.component';
+import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 
 const { googleMapsApiKey } = environment;
 
@@ -54,6 +56,7 @@ const { googleMapsApiKey } = environment;
     FilterResultComponent,
     LandingPageComponent,
     AuthModalComponent,
+    AutocompleteComponent,
   ],
   imports: [
     BrowserModule,

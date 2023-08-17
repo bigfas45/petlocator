@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import {
   FormControl,
@@ -31,7 +31,7 @@ export class AnErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./price-form.component.scss'],
 })
 export class PriceFormComponent implements OnInit {
-  constructor(private router: Router, public rest: RestService) {}
+  constructor(public zone: NgZone, private router: Router, public rest: RestService) {}
 
   serializedData: any = '';
 
@@ -45,12 +45,22 @@ export class PriceFormComponent implements OnInit {
   description = new FormControl('');
   address = new FormControl('');
 
+  address2: Object;
+  establishmentAddress: Object;
+
+  formattedAddress: string;
+  formattedEstablishmentAddress: string;
+
+  phone: string;
+
   formOne = new FormGroup({
     name: this.name,
     priceInNaira: this.priceInNaira,
     description: this.description,
     address: this.address,
   });
+
+  useLocationIsClicked: boolean = false;
 
   ngOnInit(): void {
     this.getCurrentLocation();
@@ -75,7 +85,16 @@ export class PriceFormComponent implements OnInit {
   addressText = '';
 
   useLocation() {
+    this.useLocationIsClicked = true;
     this.address.setValue('Oando Filling Station, Ikeja, Lagos');
+  }
+
+  getAddress(place: object) {
+    this.address = place['formatted_address'];
+
+    console.log(place)
+    this.formattedAddress = place['formatted_address'];
+    this.zone.run(() => this.formattedAddress = place['formatted_address']);
   }
 
   proceed() {}
