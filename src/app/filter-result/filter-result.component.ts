@@ -17,7 +17,7 @@ export class FilterResultComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getClosest()
+    //this.getClosest()
   }
 
   redirect() {
@@ -38,16 +38,16 @@ export class FilterResultComponent implements OnInit {
 
   nData: any
 
-  getClosest() {
-    this.rest.getNearby().subscribe({
-      next: (res) => {
-        console.log(res.data);
-        this.nData = res.data.productsNearby;
-      },
-      error: ({ error }) => {
-        console.log(error);
+  // getClosest() {
+  //   this.rest.getNearby().subscribe({
+  //     next: (res) => {
+  //       console.log(res.data);
+  //       this.nData = res.data.productsNearby;
+  //     },
+  //     error: ({ error }) => {
+  //       console.log(error);
 
-      },
-    });
-  }
+  //     },
+  //   });
+  // }
 }
