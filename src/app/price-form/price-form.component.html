@@ -5,68 +5,165 @@
         <!-- nav header -->
         <div class="nav-header">
           <div class="box" (click)="back()">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="56"
-              height="56"
-              viewBox="0 0 56 56"
-              fill="none"
-            >
+            <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56" fill="none">
               <circle cx="28" cy="28" r="28" fill="black" fill-opacity="0.1" />
-              <path
-                d="M28.07 22L22 28.07L28.07 34.14"
-                stroke="black"
-                stroke-width="2"
-                stroke-miterlimit="10"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M33.5 28.0701H22.5"
-                stroke="black"
-                stroke-width="2"
-                stroke-miterlimit="10"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
+              <path d="M28.07 22L22 28.07L28.07 34.14" stroke="black" stroke-width="2" stroke-miterlimit="10"
+                stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M33.5 28.0701H22.5" stroke="black" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"
+                stroke-linejoin="round" />
             </svg>
           </div>
 
-          <div class="box">
-            <!-- <span class="DetailTiltle">Oando </span> -->
-          </div>
+          <!-- <div [class]="showSidebar? 'box box-none' : 'box' " (click)="categorySelect()">
+            <div class="input-box">
+              <button mat-button class="input input-button" [matMenuTriggerFor]="accounSelectMenu" type="button">
 
-          <div class="box">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="42"
-              height="19"
-              viewBox="0 0 42 19"
-              fill="none"
-            >
-              <path
-                d="M2 2H40"
-                stroke="#292D32"
-                stroke-width="3"
-                stroke-linecap="round"
-              />
-              <path
-                d="M2 9.5H40"
-                stroke="#292D32"
-                stroke-width="3"
-                stroke-linecap="round"
-              />
-              <path
-                d="M2 17H40"
-                stroke="#292D32"
-                stroke-width="3"
-                stroke-linecap="round"
-              />
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
+                  <path
+                    d="M10.5 20C15.7467 20 20 15.7467 20 10.5C20 5.25329 15.7467 1 10.5 1C5.25329 1 1 5.25329 1 10.5C1 15.7467 5.25329 20 10.5 20Z"
+                    stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M21 21L19 19" stroke="black" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+
+
+                <div class="mat-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="19" viewBox="0 0 22 19" fill="none">
+                    <path d="M21 15H14" stroke="black" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                    <path d="M4 15H1" stroke="black" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                    <path d="M21 4H18" stroke="black" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                    <path d="M8 4H1" stroke="black" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                    <path
+                      d="M6 12H12C13.1 12 14 12.5 14 14V16C14 17.5 13.1 18 12 18H6C4.9 18 4 17.5 4 16V14C4 12.5 4.9 12 6 12Z"
+                      stroke="black" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                    <path d="M10 1H16C17.1 1 18 1.5 18 3V5C18 6.5 17.1 7 16 7H10C8.9 7 8 6.5 8 5V3C8 1.5 8.9 1 10 1Z"
+                      stroke="black" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                </div>
+
+              </button>
+            </div>
+          </div> -->
+
+          
+          <div class="box" (click)="toggleSidebar()">
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="42" height="19" viewBox="0 0 42 19" fill="none">
+              <path d="M2 2H40" stroke="#292D32" stroke-width="3" stroke-linecap="round" />
+              <path d="M2 9.5H40" stroke="#292D32" stroke-width="3" stroke-linecap="round" />
+              <path d="M2 17H40" stroke="#292D32" stroke-width="3" stroke-linecap="round" />
             </svg>
           </div>
         </div>
       </div>
     </nav>
+
+
+    <aside [class]="showSidebar ? 'sidebar show' : 'sidebar' " id="sidebar">
+      <div class="aside-con">
+        <div class="icon-can mb" (click)="toggleSidebar()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M2 2L18 18" stroke="#000C44" stroke-width="3" stroke-linecap="round" />
+            <path d="M2 18L18 2" stroke="#000C44" stroke-width="3" stroke-linecap="round" />
+          </svg>
+        </div>
+
+
+        <div class="icon-can mt">
+          <span class="usern mr">Kabiru Lawal</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="49" height="49" viewBox="0 0 49 49" fill="none">
+            <circle cx="24.5" cy="24.5" r="24.5" fill="#EBEBEB" />
+            <path
+              d="M24.8151 22.87C24.7151 22.86 24.5951 22.86 24.4851 22.87C22.1051 22.79 20.2151 20.84 20.2151 18.44C20.2151 15.99 22.1951 14 24.6551 14C27.1051 14 29.0951 15.99 29.0951 18.44C29.0851 20.84 27.1951 22.79 24.8151 22.87Z"
+              stroke="#000C44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <path
+              d="M19.815 26.56C17.395 28.18 17.395 30.82 19.815 32.43C22.565 34.27 27.075 34.27 29.825 32.43C32.245 30.81 32.245 28.17 29.825 26.56C27.085 24.73 22.575 24.73 19.815 26.56Z"
+              stroke="#000C44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </div>
+
+        <hr class="hr-o">
+
+
+        <div class="icon-can mt">
+          <span class="usern mr">Station list</span>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="vuesax/linear/document-text">
+              <g id="document-text">
+                <path id="Vector" d="M22 10V15C22 20 20 22 15 22H9C4 22 2 20 2 15V9C2 4 4 2 9 2H14" stroke="#000C44"
+                  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                <path id="Vector_2" d="M22 10H18C15 10 14 9 14 6V2L22 10Z" stroke="#000C44" stroke-width="1.5"
+                  stroke-linecap="round" stroke-linejoin="round" />
+                <path id="Vector_3" d="M7 13H13" stroke="#000C44" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path id="Vector_4" d="M7 17H11" stroke="#000C44" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </g>
+            </g>
+          </svg>
+
+        </div>
+
+        <div class="icon-can mt">
+          <span class="usern mr">Change password</span>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="vuesax/linear/setting">
+              <g id="setting">
+                <path id="Vector"
+                  d="M3 9.11011V14.8801C3 17.0001 3 17.0001 5 18.3501L10.5 21.5301C11.33 22.0101 12.68 22.0101 13.5 21.5301L19 18.3501C21 17.0001 21 17.0001 21 14.8901V9.11011C21 7.00011 21 7.00011 19 5.65011L13.5 2.47011C12.68 1.99011 11.33 1.99011 10.5 2.47011L5 5.65011C3 7.00011 3 7.00011 3 9.11011Z"
+                  stroke="#000C44" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                <path id="Vector_2"
+                  d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z"
+                  stroke="#000C44" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              </g>
+            </g>
+          </svg>
+
+
+        </div>
+
+
+        <div class="icon-can mt">
+          <span class="usern-r mr">Logout</span>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="vuesax/linear/logout">
+              <g id="logout">
+                <path id="Vector" d="M17.44 14.62L20 12.06L17.44 9.5" stroke="#FF0000" stroke-width="1.5"
+                  stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                <path id="Vector_2" d="M9.76001 12.0601H19.93" stroke="#FF0000" stroke-width="1.5"
+                  stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                <path id="Vector_3" d="M11.76 20C7.34001 20 3.76001 17 3.76001 12C3.76001 7 7.34001 4 11.76 4"
+                  stroke="#FF0000" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </g>
+            </g>
+          </svg>
+
+
+
+        </div>
+
+
+
+
+
+      </div>
+    </aside>
+
+
+    <mat-menu #accounSelectMenu="matMenu" class="mat-menu">
+
+      <div class="mod-filter">
+
+      </div>
+
+    </mat-menu>
   </div>
 
   <form [formGroup]="formOne">
@@ -92,127 +189,102 @@
     </div> -->
       <div class="input-box mt">
         <mat-form-field appearance="outline">
-           <mat-label>Fuel type</mat-label>
-           <mat-select >
-             <mat-option [value]="fType"
-             (onSelectionChange)="selectFuelType(fType)" *ngFor="let fType of fuleType" value="{{fType._id}}">{{fType.name}}</mat-option>
-           </mat-select>
-        
-        <mat-error class="mt-u" *ngIf="formOne.controls['name'].hasError('required')">
-          Name is <strong>required</strong>
-        </mat-error>
-      </mat-form-field>
+          <mat-label>Fuel type</mat-label>
+          <mat-select>
+            <mat-option [value]="fType" (onSelectionChange)="selectFuelType(fType)" *ngFor="let fType of fuleType"
+              value="{{fType._id}}">{{fType.name}}</mat-option>
+          </mat-select>
+
+          <mat-error class="mt-u" *ngIf="formOne.controls['name'].hasError('required')">
+            Name is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
       </div>
 
 
-            <div class="input-box mt">
-              <mat-form-field appearance="outline">
-                <mat-label>Filling Station </mat-label>
-                <mat-select>
-                  <mat-option [value]="brand" (onSelectionChange)="selectFillingStation(brand)" *ngFor="let brand of brands" value="{{brand._id}}">{{brand.name}}</mat-option>
-                 
-                </mat-select>
+      <div class="input-box mt">
+        <mat-form-field appearance="outline">
+          <mat-label>Filling Station </mat-label>
+          <mat-select>
+            <mat-option [value]="brand" (onSelectionChange)="selectFillingStation(brand)" *ngFor="let brand of brands"
+              value="{{brand._id}}">{{brand.name}}</mat-option>
 
-                <mat-error class="mt-u" *ngIf="formOne.controls['name'].hasError('required')">
-                  Name is <strong>required</strong>
-                </mat-error>
-              </mat-form-field>
-            </div>
+          </mat-select>
+
+          <mat-error class="mt-u" *ngIf="formOne.controls['name'].hasError('required')">
+            Name is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
       <div class="input-box">
         <mat-form-field appearance="outline">
-          <input
-            matInput
-            autocomplete="off"
-            type="text"
-            placeholder="Fuel price"
-            maxlength="10"
-            minlength="2"
-            formControlName="priceInNaira"
-            [errorStateMatcher]="matcher"
-            (keydown)="numbersOnly($event)"
-          />
+          <input matInput autocomplete="off" type="text" placeholder="Fuel price" maxlength="10" minlength="2"
+            formControlName="priceInNaira" [errorStateMatcher]="matcher" (keydown)="numbersOnly($event)" />
 
-            <div matSuffix>
-              <svg width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M2.464 20V12.804H0.28V11.012H2.464V8.716H0.28V6.924H2.464V0.0079987H5.376L8.036 6.924H11.34V0.0079987H13.552V6.924H15.736V8.716H13.552V11.012H15.736V12.804H13.552V20H10.612L7.952 12.804H4.648V20H2.464ZM4.648 11.012H7.28L6.44 8.716H4.592L4.648 11.012ZM11.34 16.052H11.452L11.368 12.804H10.192L11.34 16.052ZM4.592 6.924H5.768L4.592 3.452H4.48L4.592 6.924ZM9.52 11.012H11.396L11.34 8.716H8.68L9.52 11.012Z"
-                  fill="#969696" />
-              </svg>
+          <div matSuffix>
+            <svg width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M2.464 20V12.804H0.28V11.012H2.464V8.716H0.28V6.924H2.464V0.0079987H5.376L8.036 6.924H11.34V0.0079987H13.552V6.924H15.736V8.716H13.552V11.012H15.736V12.804H13.552V20H10.612L7.952 12.804H4.648V20H2.464ZM4.648 11.012H7.28L6.44 8.716H4.592L4.648 11.012ZM11.34 16.052H11.452L11.368 12.804H10.192L11.34 16.052ZM4.592 6.924H5.768L4.592 3.452H4.48L4.592 6.924ZM9.52 11.012H11.396L11.34 8.716H8.68L9.52 11.012Z"
+                fill="#969696" />
+            </svg>
 
-            </div>
-          
-        <mat-error
-        class="mt-u"
-          *ngIf="formOne.controls['priceInNaira'].hasError('required')"
-        >
-          Price is <strong>required</strong>
-        </mat-error>
-      </mat-form-field>
+          </div>
+
+          <mat-error class="mt-u" *ngIf="formOne.controls['priceInNaira'].hasError('required')">
+            Price is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
       </div>
       <div class="input-box" *ngIf="useLocationIsClicked">
         <mat-form-field appearance="outline">
-          <input
-            matInput
-            autocomplete="off"
-            type="text"
-            placeholder="Station location"
-            maxlength="100"
-            minlength="3"
-            formControlName="address"
-            [errorStateMatcher]="matcher"
-          />
-            <div matSuffix><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                fill="none">
-                <path d="M3.5 22V5C3.5 3 4.84 2 6.5 2H14.5C16.16 2 17.5 3 17.5 5V22H3.5Z" stroke="#969696"
-                  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M2 22H19" stroke="#969696" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                <path
-                  d="M8.39 9.99998H12.62C13.66 9.99998 14.51 9.49999 14.51 8.10999V6.87999C14.51 5.48999 13.66 4.98999 12.62 4.98999H8.39C7.35 4.98999 6.5 5.48999 6.5 6.87999V8.10999C6.5 9.49999 7.35 9.99998 8.39 9.99998Z"
-                  stroke="#969696" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M6.5 13H9.5" stroke="#969696" stroke-width="1.5" stroke-linecap="round"
-                  stroke-linejoin="round" />
-                <path d="M17.5 16.01L22 16V10L20 9" stroke="#969696" stroke-width="1.5" stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </svg></div>
+          <input matInput autocomplete="off" type="text" placeholder="Station location" maxlength="100" minlength="3"
+            formControlName="address" [errorStateMatcher]="matcher" />
+          <div matSuffix><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M3.5 22V5C3.5 3 4.84 2 6.5 2H14.5C16.16 2 17.5 3 17.5 5V22H3.5Z" stroke="#969696"
+                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M2 22H19" stroke="#969696" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              <path
+                d="M8.39 9.99998H12.62C13.66 9.99998 14.51 9.49999 14.51 8.10999V6.87999C14.51 5.48999 13.66 4.98999 12.62 4.98999H8.39C7.35 4.98999 6.5 5.48999 6.5 6.87999V8.10999C6.5 9.49999 7.35 9.99998 8.39 9.99998Z"
+                stroke="#969696" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M6.5 13H9.5" stroke="#969696" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+              <path d="M17.5 16.01L22 16V10L20 9" stroke="#969696" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg></div>
 
         </mat-form-field>
       </div>
-        <div class="autocomplete-input" *ngIf="!useLocationIsClicked">
-          <app-autocomplete (setAddress)="getAddress($event)" ></app-autocomplete>
-          <div matSuffix><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-            fill="none">
+      <div class="autocomplete-input" *ngIf="!useLocationIsClicked">
+        <app-autocomplete (setAddress)="getAddress($event)"></app-autocomplete>
+        <div matSuffix><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
             <path d="M3.5 22V5C3.5 3 4.84 2 6.5 2H14.5C16.16 2 17.5 3 17.5 5V22H3.5Z" stroke="#969696"
               stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
             <path d="M2 22H19" stroke="#969696" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
             <path
               d="M8.39 9.99998H12.62C13.66 9.99998 14.51 9.49999 14.51 8.10999V6.87999C14.51 5.48999 13.66 4.98999 12.62 4.98999H8.39C7.35 4.98999 6.5 5.48999 6.5 6.87999V8.10999C6.5 9.49999 7.35 9.99998 8.39 9.99998Z"
               stroke="#969696" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-            <path d="M6.5 13H9.5" stroke="#969696" stroke-width="1.5" stroke-linecap="round"
-              stroke-linejoin="round" />
+            <path d="M6.5 13H9.5" stroke="#969696" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
             <path d="M17.5 16.01L22 16V10L20 9" stroke="#969696" stroke-width="1.5" stroke-linecap="round"
               stroke-linejoin="round" />
           </svg></div>
-        </div>
-        <div class="location">
-          <span (click)="useLocation()">
-            <img src="../../assets/use-location.svg" />
-          </span>
-          </div>
-        
-      <div *ngIf="token" class="buttons mt">
-        <button
-          class="ok"
-          (click)="createPrice()"
-        >
-          Submit
-        </button>       
+      </div>
+      <div class="location">
+        <span (click)="useLocation()">
+          <img src="../../assets/use-location.svg" />
+        </span>
       </div>
 
-        <div *ngIf="!token" class="buttons mt">
-          <button class="ok" (click)="proceedWithGoogle()">
-            Proceed to Signup
-          </button>
-    </div>
+      <div *ngIf="token" class="buttons mt">
+        <button class="ok" (click)="createPrice()">
+          Submit
+        </button>
+      </div>
+
+      <div *ngIf="!token" class="buttons mt">
+        <button class="ok" (click)="proceedWithGoogle()">
+          Proceed to Signup
+        </button>
+      </div>
 
     </div>
   </form>

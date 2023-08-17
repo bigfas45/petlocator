@@ -412,3 +412,68 @@ a {
   display: flex;
   align-items: center;
 }
+
+
+.sidebar {
+  width: 300px; /* Set the width of the sidebar as per your requirement */
+  height: 100%;
+background: var(--white, #FFF);
+  position: fixed;
+  left: -300px; /* Hide the sidebar initially by moving it to the left */
+  top: 0;
+  transition: left 0.3s ease; /* Use CSS transitions for smooth animation */
+  z-index: 1;
+}
+
+.sidebar.show {
+  left: 0; /* Move the sidebar back to the original position to show it */
+}
+
+.aside-con{
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 2rem;
+  margin-top: 4rem;
+
+}
+
+.icon-can{
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.usern{
+  color: var(--black, #000C44);
+text-align: right;
+font-family: 'TT Firs Neue Trail';
+font-size: 20px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+
+.usern-r{
+  color: var(--black, #FF0000);
+text-align: right;
+font-family: 'TT Firs Neue Trail';
+font-size: 20px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+
+
+.hr-o{
+  width: 100%;
+  margin-top: 2rem;
+  background: #e7d6d6;
+}
+
+.aside-con{
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 2rem;
+  margin-top: 4rem;
+
+}

@@ -9,6 +9,8 @@ import {
 } from "@angular/forms";
 import { ErrorStateMatcher } from "@angular/material/core";
 import { RestService } from '../services/rest.service';
+import { FilterDialogComponent } from '../filter-dialog/filter-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 
 export class AnErrorStateMatcher implements ErrorStateMatcher {
@@ -31,7 +33,14 @@ export class AnErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./price-form.component.scss'],
 })
 export class PriceFormComponent implements OnInit {
-  constructor(public zone: NgZone, private router: Router, public rest: RestService) {}
+  constructor(
+    public zone: NgZone,
+    private router: Router,
+    public rest: RestService,
+    public dialog: MatDialog
+
+    
+  ) {}
 
   serializedData: any = '';
   token: any = '';
@@ -39,7 +48,7 @@ export class PriceFormComponent implements OnInit {
   priceInNaira = new FormControl('', [Validators.required]);
   description = new FormControl('');
   address = new FormControl('');
-  venueName = new FormControl('', [Validators.required])
+  venueName = new FormControl('', [Validators.required]);
   address2: Object;
   establishmentAddress: Object;
   formattedAddress: string;
@@ -73,10 +82,22 @@ export class PriceFormComponent implements OnInit {
     // console.log(this.token);
 
     this.getClosest();
-    this.getFuleType()
+    this.getFuleType();
   }
 
-  getFormData () {
+  categorySelect() {
+    const catDialogSub = this.dialog.open(FilterDialogComponent, {
+      data: { selectedCat: '' },
+      disableClose: true,
+      backdropClass: 'blurred',
+    });
+    catDialogSub.afterClosed().subscribe((response) => {
+      if (response) {
+      }
+    });
+  }
+
+  getFormData() {
     const granularAddress = this.address.value.split(', ');
     const payload = {
       name: this.name.value,
@@ -84,44 +105,46 @@ export class PriceFormComponent implements OnInit {
       priceInNaira: this.priceInNaira.value,
       address: this.address.value,
       state: granularAddress[granularAddress.length - 2],
-      country: granularAddress[granularAddress.length -1],
+      country: granularAddress[granularAddress.length - 1],
       latitude: this.lat,
       longitude: this.lng,
-    }
+    };
     return payload;
   }
 
-  addProduct () {
+  addProduct() {
     const payload = this.getFormData();
-    this.rest.addProduct(payload).subscribe((response: any) => {
-    })
+    this.rest.addProduct(payload).subscribe((response: any) => {});
   }
 
   proceedWithGoogle() {
     const payload = this.getFormData();
     localStorage.setItem('newLocation', JSON.stringify(payload));
-     location.href = 'https://crowdfo-63ff986763ab.herokuapp.com/api/v1/auth/google';
+    location.href =
+      'https://crowdfo-63ff986763ab.herokuapp.com/api/v1/auth/google';
   }
 
   useLocation() {
     this.useLocationIsClicked = true;
-    this.getCurrentLocation()
+    this.getCurrentLocation();
     this.address.setValue(this.currentAddress);
   }
 
   getAddress(place: object) {
     this.address.setValue(place['formatted_address']);
-  
+
     //this.formattedAddress = place['formatted_address'];
-    this.zone.run(() => this.formattedAddress = place['formatted_address']);
-    this.rest.addressToCoordinates(place['formatted_address']).subscribe((response) => {
-      if (response.results[0]) {
-        this.lat = response.results[0].geometry.location.lat;
-        this.lng = response.results[0].geometry.location.lng;
-      } else {
-        console.log('Location not found');
-      }
-    })
+    this.zone.run(() => (this.formattedAddress = place['formatted_address']));
+    this.rest
+      .addressToCoordinates(place['formatted_address'])
+      .subscribe((response) => {
+        if (response.results[0]) {
+          this.lat = response.results[0].geometry.location.lat;
+          this.lng = response.results[0].geometry.location.lng;
+        } else {
+          console.log('Location not found');
+        }
+      });
   }
 
   proceed() {}
@@ -176,12 +199,12 @@ export class PriceFormComponent implements OnInit {
   ];
 
   createPrice() {
-    this.addProduct()
+    this.addProduct();
     this.router.navigate(['/home']);
   }
 
   brands: any = [];
-  fuleType: any = []
+  fuleType: any = [];
 
   getClosest() {
     this.rest.getBrand().subscribe({
@@ -211,5 +234,11 @@ export class PriceFormComponent implements OnInit {
         console.log(error);
       },
     });
+  }
+
+  showSidebar: boolean = false;
+
+  toggleSidebar(): void {
+    this.showSidebar = !this.showSidebar;
   }
 }
