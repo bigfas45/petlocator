@@ -21,7 +21,7 @@
 
           <div class="box">
 
-            <span class="DetailTiltle">Oando </span>
+            <span class="DetailTiltle">{{data?.venueName}} </span>
 
           </div>
 
@@ -43,7 +43,8 @@
     </div>
   </div>
 
-  <div class="hero section-center">
+  <div class="hero section-center" [style.background-image]="'url(' + data.imageURL + ')'">
+
   </div>
 
 
@@ -86,7 +87,7 @@
 
 
     <div class="imgUp">
-      <span class="detil-b-t">Oando Petroleum Limited</span>
+      <span class="detil-b-t">{{data.venueName}} Petroleum Limited</span>
     </div>
 
     <div class="imgUp">

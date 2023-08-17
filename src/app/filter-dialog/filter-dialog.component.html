@@ -1,4 +1,7 @@
 <div class="dialog-container ">
+
+    <form [formGroup]="formOne">
+
   <div class="mGUp">
     Filter by
   </div>
@@ -82,7 +85,8 @@
      <div class="input-box">
          <div class="input-box">
            <mat-form-field appearance="outline">
-             <input matInput autocomplete="off" type="text" placeholder="Set location" maxlength="100" minlength="3"
+             <input matInput autocomplete="off" type="text" placeholder="Set location" formControlName="address"
+               maxlength="100" minlength="3"
                />
              <div matSuffix><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                  fill="none">
@@ -108,11 +112,11 @@
                    </span>
                  </div>
 
-
+</div>
                  
 
        <button class="price-btn" (click)="price()">
          <span class="inner-btn-text">Apply filter</span>
        </button>
-
+</form>
 </div>

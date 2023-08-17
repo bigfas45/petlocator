@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit, ViewEncapsulation } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { Options, LabelType } from '@angular-slider/ngx-slider';
 import { Router } from '@angular/router';
@@ -16,6 +16,18 @@ export class FilterDialogComponent implements OnInit {
     public dialogRef: MatDialog,
     @Inject(MAT_DIALOG_DATA) public data
   ) {}
+
+  name = new FormControl('', [Validators.required]);
+  priceInNaira = new FormControl('', [Validators.required]);
+  description = new FormControl('');
+  address = new FormControl('');
+
+  formOne = new FormGroup({
+    name: this.name,
+    priceInNaira: this.priceInNaira,
+    description: this.description,
+    address: this.address,
+  });
 
   minValue: number = 500;
   maxValue: number = 700;
@@ -51,7 +63,7 @@ export class FilterDialogComponent implements OnInit {
   activeBrand: String = 'OANDO';
   sortBy: String = 'CHEAPEST';
   typeP: String = 'PETROL';
-  address = new FormControl('');
+  // address = new FormControl('');
   typeF(v: any) {
     this.typeP = v;
   }
@@ -65,6 +77,8 @@ export class FilterDialogComponent implements OnInit {
   }
 
   useLocation() {
+    console.log('hello');
+
     this.address.setValue('Oando Filling Station, Ikeja, Lagos');
   }
 }

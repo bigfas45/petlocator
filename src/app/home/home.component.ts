@@ -4,7 +4,7 @@ import {
   MatSnackBarHorizontalPosition,
   MatSnackBarVerticalPosition,
 } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { RestService } from '../services/rest.service';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { FilterDialogComponent } from '../filter-dialog/filter-dialog.component';
@@ -63,10 +63,17 @@ export class HomeComponent {
     this.data = !this.data;
   }
 
-  redirect() {
-    console.log('fffff');
+  redirect(data: any) {
+    console.log('fffff', data);
 
-    this.router.navigate(['/details']);
+  const navigationExtras: NavigationExtras = {
+    queryParams: {
+      key1: JSON.stringify(data),
+      // Add more key-value pairs as needed
+    },
+  };
+
+    this.router.navigate(['/details'], navigationExtras);
   }
 
   price() {

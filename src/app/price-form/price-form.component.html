@@ -33,7 +33,7 @@
           </div>
 
           <div class="box">
-            <span class="DetailTiltle">Oando </span>
+            <!-- <span class="DetailTiltle">Oando </span> -->
           </div>
 
           <div class="box">
@@ -94,8 +94,7 @@
         <mat-form-field appearance="outline">
            <mat-label>Fuel type</mat-label>
            <mat-select >
-             <mat-option value="option">Petrol</mat-option>
-             <mat-option value="option">Desile</mat-option>
+             <mat-option *ngFor="let fType of fuleType" value="{{fType._id}}">{{fType.name}}</mat-option>
            </mat-select>
         
         <mat-error class="mt-u" *ngIf="formOne.controls['name'].hasError('required')">
@@ -103,6 +102,21 @@
         </mat-error>
       </mat-form-field>
       </div>
+
+
+            <div class="input-box mt">
+              <mat-form-field appearance="outline">
+                <mat-label>Filling Station </mat-label>
+                <mat-select>
+                  <mat-option *ngFor="let brand of brands" value="{{brand._id}}">{{brand.name}}</mat-option>
+                 
+                </mat-select>
+
+                <mat-error class="mt-u" *ngIf="formOne.controls['name'].hasError('required')">
+                  Name is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+            </div>
       <div class="input-box">
         <mat-form-field appearance="outline">
           <input
@@ -143,7 +157,7 @@
             placeholder="Station location"
             maxlength="100"
             minlength="3"
-            formControlName="description"
+            formControlName="address"
             [errorStateMatcher]="matcher"
           />
             <div matSuffix><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -168,7 +182,7 @@
         </span>
         </div>
 
-      <div class="input-box mt">
+      <!-- <div class="input-box mt">
         <mat-form-field appearance="outline">
           <input
             matInput
@@ -182,7 +196,7 @@
           />
 
         </mat-form-field>
-      </div>
+      </div> -->
  
     
 

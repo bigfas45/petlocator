@@ -8,6 +8,8 @@ import {
   NgForm,
 } from "@angular/forms";
 import { ErrorStateMatcher } from "@angular/material/core";
+import { RestService } from '../services/rest.service';
+
 
 export class AnErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(
@@ -29,7 +31,7 @@ export class AnErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./price-form.component.scss'],
 })
 export class PriceFormComponent implements OnInit {
-  constructor(private router: Router) {}
+  constructor(private router: Router, public rest: RestService) {}
 
   serializedData: any = '';
 
@@ -56,13 +58,13 @@ export class PriceFormComponent implements OnInit {
     this.serializedData = localStorage.getItem('userData');
 
     // console.log(this.serializedData);
-    
 
     this.token = this.serializedData;
 
-
     // console.log(this.token);
-    
+
+    this.getClosest();
+    this.getFuleType()
   }
 
   proceedWithGoogle() {
@@ -136,7 +138,39 @@ export class PriceFormComponent implements OnInit {
   ];
 
   createPrice() {
-        this.router.navigate(['/home']);
+    this.router.navigate(['/home']);
+  }
 
+  brands: any = [];
+  fuleType: any = []
+
+  getClosest() {
+    this.rest.getBrand().subscribe({
+      next: (res) => {
+        this.brands = res.brands;
+      },
+      error: ({ error }) => {
+        console.log(error);
+
+        //  if (error.appName || error.appURL || error.appURL ) {
+        //    this.controlForm.setErrors({credentials: true})
+        //  }
+      },
+    });
+  }
+
+  getFuleType() {
+    this.rest.getFuleType().subscribe({
+      next: (res) => {
+        this.fuleType = res.items;
+      },
+      error: ({ error }) => {
+        console.log(error);
+
+        //  if (error.appName || error.appURL || error.appURL ) {
+        //    this.controlForm.setErrors({credentials: true})
+        //  }
+      },
+    });
   }
 }
