@@ -451,7 +451,7 @@ line-height: normal;
   grid-template-columns: 40% 60%;
 
 // width: 370px;
-  // height: 143px;
+height: 120px;
 flex-shrink: 0;
 border-radius: 20px;
 border: 0.5px solid var(--light-blue-2, #A1B0F6);
@@ -488,16 +488,9 @@ margin-right: 2rem;
 }
 
 .x-p-s-s{
-  color: var(--black, #000C44);
-font-family: 'TT Firs Neue Trail';
-font-size: 10.289px;
-font-style: normal;
-font-weight: 500;
-line-height: normal;
-}
-
-.x-p-svg{
-  color: var(--black, #000C44);
+  display: flex;
+  margin-top: 0.5rem;
+color: var(--black, #000C44);
 
 /* Description text */
 font-family: 'TT Firs Neue Trail';
@@ -505,6 +498,20 @@ font-size: 12px;
 font-style: normal;
 font-weight: 500;
 line-height: normal;
+}
+
+.x-p-svg{
+  color: var(--black, #000C44);
+display: flex;
+/* Description text */
+font-family: 'TT Firs Neue Trail';
+font-size: 12px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+align-items: center;
+gap: 0.5rem;
+margin-top: 1rem;
 }
 
 .mod-filter{
@@ -539,7 +546,7 @@ line-height: normal;
   grid-template-columns: 40% 60%;
 
 width: 370px;
-  // height: 143px;
+  height: 143px;
 flex-shrink: 0;
 border-radius: 20px;
 border: 0.5px solid var(--light-blue-2, #A1B0F6);
@@ -692,4 +699,15 @@ margin-top: 1rem;
 
 .box-none{
   display: none;
+}
+
+.location {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -1rem;
+  margin-right: 1rem;
+
+  span img {
+    height: 18px;
+  }
 }

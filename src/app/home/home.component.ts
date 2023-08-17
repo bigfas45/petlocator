@@ -8,6 +8,7 @@ import { NavigationExtras, Router } from '@angular/router';
 import { RestService } from '../services/rest.service';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { FilterDialogComponent } from '../filter-dialog/filter-dialog.component';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -19,11 +20,12 @@ export class HomeComponent {
     public rest: RestService,
     private _snackBar: MatSnackBar,
     private router: Router,
-    public dialog: MatDialog,
+    public dialog: MatDialog
   ) {}
 
   urlParams: any;
   myParam: any;
+  address = new FormControl('');
 
   data: boolean = false;
 
@@ -36,8 +38,6 @@ export class HomeComponent {
     this.myParam = this.urlParams.get('token');
     // const serializedData = JSON.stringify(this.myParam);
 
-
-    
     if (!this.myParam) {
       console.log('not to be null', this.myParam);
     } else {
@@ -66,12 +66,12 @@ export class HomeComponent {
   redirect(data: any) {
     console.log('fffff', data);
 
-  const navigationExtras: NavigationExtras = {
-    queryParams: {
-      key1: JSON.stringify(data),
-      // Add more key-value pairs as needed
-    },
-  };
+    const navigationExtras: NavigationExtras = {
+      queryParams: {
+        key1: JSON.stringify(data),
+        // Add more key-value pairs as needed
+      },
+    };
 
     this.router.navigate(['/details'], navigationExtras);
   }
@@ -106,5 +106,9 @@ export class HomeComponent {
         //  }
       },
     });
+  }
+
+  useLocation() {
+    this.address.setValue('Oando Filling Station, Ikeja, Lagos');
   }
 }
