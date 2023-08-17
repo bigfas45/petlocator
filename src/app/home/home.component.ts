@@ -133,8 +133,8 @@ export class HomeComponent {
           this.lng = position.coords.longitude;
           this.restService.getNearby(this.lng, this.lat).subscribe({
             next: (res) => {
-              console.log(res);
-              this.data = res;
+              this.data = res.data.productsNearby;
+              this.nData = res.data.productsNearby;
             },
             error: ({ error }) => {
               console.log(error);
