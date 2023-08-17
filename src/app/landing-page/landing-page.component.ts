@@ -41,11 +41,7 @@ export class LandingPageComponent implements OnInit {
     this.router.navigate(['/home']);
   }
 
-  search () {
-    this.restService.search().subscribe(result => {
-      console.log(result)
-    })
-  }
+
 
   getClosest() {
     this.restService.getNearby().subscribe({

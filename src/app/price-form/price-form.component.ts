@@ -34,29 +34,28 @@ export class PriceFormComponent implements OnInit {
   constructor(public zone: NgZone, private router: Router, public rest: RestService) {}
 
   serializedData: any = '';
-
   token: any = '';
-
-  // // Deserialize the data back into an object
-  // data = JSON.parse(serializedData);
-
   name = new FormControl('', [Validators.required]);
   priceInNaira = new FormControl('', [Validators.required]);
   description = new FormControl('');
   address = new FormControl('');
-
+  venueName = new FormControl('', [Validators.required])
   address2: Object;
   establishmentAddress: Object;
-
   formattedAddress: string;
   formattedEstablishmentAddress: string;
+  currentAddress: string = '';
+  addressText = '';
+  venue: string = '';
+  // initial center position for the map
+  lat: number = 0;
+  lng: number = 0;
 
   phone: string;
-
   formOne = new FormGroup({
     name: this.name,
     priceInNaira: this.priceInNaira,
-    description: this.description,
+    venueName: this.venueName,
     address: this.address,
   });
 
@@ -77,24 +76,52 @@ export class PriceFormComponent implements OnInit {
     this.getFuleType()
   }
 
-  proceedWithGoogle() {
-    location.href =
-      'https://crowdfo-63ff986763ab.herokuapp.com/api/v1/auth/google';
+  getFormData () {
+    const granularAddress = this.address.value.split(', ');
+    const payload = {
+      name: this.name.value,
+      venueName: this.venueName.value,
+      priceInNaira: this.priceInNaira.value,
+      address: this.address.value,
+      state: granularAddress[granularAddress.length - 2],
+      country: granularAddress[granularAddress.length -1],
+      latitude: this.lat,
+      longitude: this.lng,
+    }
+    return payload;
   }
 
-  addressText = '';
+  addProduct () {
+    const payload = this.getFormData();
+    this.rest.addProduct(payload).subscribe((response: any) => {
+    })
+  }
+
+  proceedWithGoogle() {
+    const payload = this.getFormData();
+    localStorage.setItem('newLocation', JSON.stringify(payload));
+     location.href = 'https://crowdfo-63ff986763ab.herokuapp.com/api/v1/auth/google';
+  }
 
   useLocation() {
     this.useLocationIsClicked = true;
-    this.address.setValue('Oando Filling Station, Ikeja, Lagos');
+    this.getCurrentLocation()
+    this.address.setValue(this.currentAddress);
   }
 
   getAddress(place: object) {
-    this.address = place['formatted_address'];
-
-    console.log(place)
-    this.formattedAddress = place['formatted_address'];
+    this.address.setValue(place['formatted_address']);
+  
+    //this.formattedAddress = place['formatted_address'];
     this.zone.run(() => this.formattedAddress = place['formatted_address']);
+    this.rest.addressToCoordinates(place['formatted_address']).subscribe((response) => {
+      if (response.results[0]) {
+        this.lat = response.results[0].geometry.location.lat;
+        this.lng = response.results[0].geometry.location.lng;
+      } else {
+        console.log('Location not found');
+      }
+    })
   }
 
   proceed() {}
@@ -117,30 +144,22 @@ export class PriceFormComponent implements OnInit {
     this.router.navigate(['/home']);
   }
 
-  // initial center position for the map
-  lat: number = 0;
-  lng: number = 0;
-
   getCurrentLocation() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position: any) => {
         if (position) {
-          console.log(position);
           this.lat = position.coords.latitude;
           this.lng = position.coords.longitude;
-          // this.locationsNearby(this.lng, this.lat, this.selectedOption);
-          // this.rest
-          //   .reverseGeocoding(this.lng, this.lat)
-          //   .subscribe((response: any) => {
-          //     const currentLocation = response.results[0].formatted_address;
-          //     const result  = currentLocation.split(', ');
-          //     this.currentAddress = `${result[result.length - 2]}, ${result[result.length - 1]}`
-          //   });
+          this.rest
+            .reverseGeocoding(this.lng, this.lat)
+            .subscribe((response: any) => {
+              const currentLocation = response.results[0].formatted_address;
+              this.currentAddress = currentLocation;
+            });
         }
       });
     }
   }
-
   items = [
     {
       name: 'Petrol/PMS',
@@ -157,6 +176,7 @@ export class PriceFormComponent implements OnInit {
   ];
 
   createPrice() {
+    this.addProduct()
     this.router.navigate(['/home']);
   }
 
@@ -170,12 +190,16 @@ export class PriceFormComponent implements OnInit {
       },
       error: ({ error }) => {
         console.log(error);
-
-        //  if (error.appName || error.appURL || error.appURL ) {
-        //    this.controlForm.setErrors({credentials: true})
-        //  }
       },
     });
+  }
+
+  selectFuelType(fuleType: any) {
+    this.name.setValue(fuleType.name);
+  }
+
+  selectFillingStation(brand: any) {
+    this.venueName.setValue(brand.name);
   }
 
   getFuleType() {
@@ -185,10 +209,6 @@ export class PriceFormComponent implements OnInit {
       },
       error: ({ error }) => {
         console.log(error);
-
-        //  if (error.appName || error.appURL || error.appURL ) {
-        //    this.controlForm.setErrors({credentials: true})
-        //  }
       },
     });
   }

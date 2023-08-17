@@ -711,3 +711,13 @@ margin-top: 1rem;
     height: 18px;
   }
 }
+
+.autocomplete-input {
+  display: flex;
+  width: 82%;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid rgba(67, 97, 238, 0.5);
+  border-radius: 10px;
+  padding: 10px 13px 22px 13px;
+}

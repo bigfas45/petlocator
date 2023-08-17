@@ -16,13 +16,7 @@ export class RestService {
     return body || {};
   }
 
-  search () {
-    return this.http.get(`https://maps.googleapis.com/maps/api/place/findplacefromtext/json
-  ?fields=formatted_address%2Cname%2Crating%2Copening_hours%2Cgeometry
-  &input=Museum%20of%20Contemporary%20Art%20Australia
-  &inputtype=textquery
-  &key=AIzaSyDkrDl7VdWKv1107SyObt9WCnvl3kAQrvc`)
-  }
+  
 
   locationsNearby(
     longitude: number,
@@ -34,6 +28,10 @@ export class RestService {
         `${backendUrl}/${option}?longitude=${longitude}&latitude=${latitude}`
       )
       .pipe(catchError(this.handleError));
+  }
+
+  addProduct(payload: any) {
+    return this.http.post(`https://crowdfo-63ff986763ab.herokuapp.com/api/v1/products`, payload);
   }
 
   getNearby(): Observable<any> {

@@ -47,9 +47,6 @@ export class FilterResultComponent implements OnInit {
       error: ({ error }) => {
         console.log(error);
 
-        //  if (error.appName || error.appURL || error.appURL ) {
-        //    this.controlForm.setErrors({credentials: true})
-        //  }
       },
     });
   }

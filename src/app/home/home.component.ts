@@ -30,13 +30,14 @@ export class HomeComponent {
   data: boolean = false;
 
   nData: any;
+  newLocation: any;
+  horizontalPosition: MatSnackBarHorizontalPosition = 'start';
+  verticalPosition: MatSnackBarVerticalPosition = 'bottom';
 
   ngOnInit() {
     this.getClosest();
-
     this.urlParams = new URLSearchParams(window.location.search);
     this.myParam = this.urlParams.get('token');
-    // const serializedData = JSON.stringify(this.myParam);
 
     if (!this.myParam) {
       console.log('not to be null', this.myParam);
@@ -45,6 +46,31 @@ export class HomeComponent {
 
       localStorage.setItem('userData', this.myParam);
     }
+
+    const newLocationInStore = localStorage.getItem('newLocation');
+    if (newLocationInStore !== null) {
+      this.rest.addProduct(JSON.parse(newLocationInStore)).subscribe((response => {
+        localStorage.removeItem('newLocation');
+        this.openSnackBar('Item added successfully')
+      }), error => {
+        this.openSnackBar(error.error.message);
+        console.log(error.error.message)
+      })
+    }
+  }
+
+  openSnackBar(message: string) {
+    this._snackBar.open(message, 'Close', {
+      duration: 5000,
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+      panelClass: 'snack-bar',
+    });
+  }
+
+  getAddress(place: object) {
+    this.address = place['formatted_address'];
+    //this.zone.run(() => this.formattedAddress = place['formatted_address']);
   }
 
   categorySelect() {
@@ -100,10 +126,6 @@ export class HomeComponent {
       },
       error: ({ error }) => {
         console.log(error);
-
-        //  if (error.appName || error.appURL || error.appURL ) {
-        //    this.controlForm.setErrors({credentials: true})
-        //  }
       },
     });
   }
