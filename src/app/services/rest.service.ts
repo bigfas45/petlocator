@@ -31,7 +31,8 @@ export class RestService {
   }
 
   addProduct(payload: any) {
-    return this.http.post(`https://crowdfo-63ff986763ab.herokuapp.com/api/v1/products`, payload);
+    const accessToken = localStorage.getItem('userData');
+    return this.http.post(`https://crowdfo-63ff986763ab.herokuapp.com/api/v1/products`, payload, { headers: { authorization: accessToken } });
   }
 
   getNearby(longitude: number, latitude: number): Observable<any> {
